@@ -12,11 +12,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Leave {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+public class Leave  extends AbstractEntity{
+
 
     private String name;
     private LocalDateTime startOfLeave;
@@ -25,7 +22,8 @@ public class Leave {
     private String type;
 
     @ManyToOne
-    private User employee;
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 

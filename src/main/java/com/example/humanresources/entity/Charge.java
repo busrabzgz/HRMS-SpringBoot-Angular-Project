@@ -14,11 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Charge {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+public class Charge extends AbstractEntity{
+
 
     private String name;
     private LocalDateTime date;
@@ -26,8 +23,18 @@ public class Charge {
     private String description;
     private BigDecimal price;
 
-    @ManyToMany(mappedBy = "charges")
-    private List<User> employees;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+
+//    @OneToMany
+//    private List<Charge> charges;
+
+//    @ManyToMany(mappedBy = "charges")
+//    private List<User> employees;
+
+
 
 
 

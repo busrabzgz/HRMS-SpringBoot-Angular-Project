@@ -1,13 +1,18 @@
-package com.example.humanresources.dto;
+package com.example.humanresources.dto.responseDTO;
 
+import com.example.humanresources.dto.AbstractDTO;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 
 @Data
-public class userDTO {
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserDto extends AbstractDTO {
     private Long id;
 
     private String firsName;
@@ -19,4 +24,6 @@ public class userDTO {
     private BigDecimal salary;
     private String  level;
     private String email;
+    private DepartmentDto departmentDto;
+    private ChargeDto chargeDto;
 }
