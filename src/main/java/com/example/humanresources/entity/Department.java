@@ -11,19 +11,18 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Department {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+public class Department extends AbstractEntity{
 
     private String departmentName;
     private String place;
     private String type;
     private String description;
 
-    @OneToMany(mappedBy = "department",fetch = FetchType.LAZY)
-    private List<User>  employees;
+
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private List<User>  user;
 
 
 

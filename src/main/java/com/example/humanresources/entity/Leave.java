@@ -1,6 +1,7 @@
 package com.example.humanresources.entity;
 
 
+import com.example.humanresources.enums.LeaveEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,20 +13,21 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Leave {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+public class Leave  extends AbstractEntity{
+
 
     private String name;
     private LocalDateTime startOfLeave;
     private LocalDateTime endOfLeave;
     private String description;
-    private String type;
+
+    @Enumerated
+    private LeaveEnum  type;
+
 
     @ManyToOne
-    private User employee;
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 

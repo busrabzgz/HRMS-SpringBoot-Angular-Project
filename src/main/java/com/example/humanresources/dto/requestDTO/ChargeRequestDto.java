@@ -1,4 +1,10 @@
 package com.example.humanresources.dto.requestDTO;
 
-public class ChargeRequestDto {
+import com.example.humanresources.dto.AbstractDTO;
+import java.time.LocalDateTime;
+
+public class ChargeRequestDto extends AbstractDTO {
+
+    private LocalDateTime date;
+
 }
