@@ -1,36 +1,42 @@
 package com.example.humanresources.services;
 
-import com.example.humanresources.common.ReflectionUtil;
 import com.example.humanresources.entity.GenericEntity;
+import com.example.humanresources.repository.GenericRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-import java.lang.reflect.Field;
+import java.util.Optional;
+
 
 public abstract class AbstractService<E extends GenericEntity> implements GenericService<E> {
 
+    @Autowired
+    protected GenericRepository<E> repository;
+
     @Override
     public E create(E entity) throws Exception {
-        System.out.println(entity.getClass());
-        ReflectionUtil.getAllField(entity.getClass());
-        return null;
+
+        return repository.save(entity);
     }
 
     @Override
     public E update(E entity) throws Exception {
-        return null;
+        return repository.save(entity);
     }
 
     @Override
-    public E deleteById(E entity) throws Exception {
-        return null;
+    public void deleteById(E entity) throws Exception {
+         repository.deleteById(entity.getId());
     }
 
     @Override
-    public E findAll(E entity) throws Exception {
-        return null;
+    public Optional<E> findById(E entity) throws Exception {
+        return repository.findById(entity.getId());
     }
 
     @Override
-    public E findById(E entity) throws Exception {
-        return null;
+    public Page<E> findAll(Pageable pageable){
+        return repository.findAll(pageable);
     }
 }

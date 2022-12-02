@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class UserDto extends AbstractDTO {
 
-
     private String firsName;
     private String lastName;
     private String citizenNumber;

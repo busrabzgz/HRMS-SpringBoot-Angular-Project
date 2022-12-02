@@ -10,6 +10,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends GenericRepository<User> {
-    @Override
-    User save(User user);
+
 }

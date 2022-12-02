@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 public class UserRequestDto extends AbstractDTO {
+    private Long id;
     private String firsName;
     private String lastName;
     private String citizenNumber;
