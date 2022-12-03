@@ -4,6 +4,7 @@ package com.example.humanresources.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,15 +21,27 @@ public class User extends AbstractEntity{
     private String firsName;
     private String lastName;
     private String citizenNumber;
-    private LocalDateTime birtOfDate;
-    private LocalDateTime firstStartedWork;
+    private String gender;
     private String position;
     private BigDecimal salary;
     private String  level;
     private String email;
-    
     private String password;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "firsName='" + firsName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", citizenNumber='" + citizenNumber + '\'' +
+                ", gender='" + gender + '\'' +
+                ", position='" + position + '\'' +
+                ", salary=" + salary +
+                ", level='" + level + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 
 //    @ManyToMany(cascade = { CascadeType.ALL })
 //    @JoinTable(

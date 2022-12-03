@@ -5,17 +5,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChargeDto extends AbstractDTO {
-
+public class LeaveResponseDto extends AbstractDTO {
 
     private String name;
-    private LocalDateTime date;
-    private String type;
+    private LocalDateTime startOfLeave;
+    private LocalDateTime endOfLeave;
     private String description;
-    private BigDecimal price;
+    private String type;
+
 }

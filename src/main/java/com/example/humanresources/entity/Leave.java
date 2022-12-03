@@ -22,7 +22,7 @@ public class Leave  extends AbstractEntity{
     private String description;
 
     @Enumerated
-    private LeaveEnum  type;
+    private LeaveEnum type;
 
 
     @ManyToOne

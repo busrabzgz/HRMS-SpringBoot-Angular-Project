@@ -5,17 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LeaveDto extends AbstractDTO {
+public class DepartmentResponseDto extends AbstractDTO {
 
-    private String name;
-    private LocalDateTime startOfLeave;
-    private LocalDateTime endOfLeave;
-    private String description;
+    private String departmentName;
+    private String place;
     private String type;
-
+    private String description;
 }

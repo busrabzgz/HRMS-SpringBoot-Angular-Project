@@ -1,6 +1,8 @@
 package com.example.humanresources.services;
 
 import com.example.humanresources.common.ReflectionUtil;
+import com.example.humanresources.dto.requestDTO.LeaveRequestDto;
+import com.example.humanresources.dto.responseDTO.LeaveResponseDto;
 import com.example.humanresources.entity.Leave;
 import com.example.humanresources.entity.Leave;
 import com.example.humanresources.repository.LeaveRepository;
@@ -13,7 +15,8 @@ import java.util.List;
 import java.util.Optional;
 @RequiredArgsConstructor
 @Service
-public class LeaveService {
+
+public class LeaveService extends AbstractService<Leave, LeaveRequestDto, LeaveResponseDto> {
 
     private UserRepository userRepository;
 

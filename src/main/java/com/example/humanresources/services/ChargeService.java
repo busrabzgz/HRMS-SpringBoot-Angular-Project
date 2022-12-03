@@ -1,5 +1,7 @@
 package com.example.humanresources.services;
 
+import com.example.humanresources.dto.requestDTO.ChargeRequestDto;
+import com.example.humanresources.dto.responseDTO.ChargeResponseDto;
 import com.example.humanresources.entity.Charge;
 import com.example.humanresources.repository.ChargesRepository;
 import com.example.humanresources.repository.UserRepository;
@@ -11,7 +13,7 @@ import java.util.stream.Collectors;
 
 
 @Service
-public class ChargeService {
+public class ChargeService extends AbstractService<Charge, ChargeRequestDto, ChargeResponseDto>{
 
     private UserRepository userRepository;
 

@@ -1,9 +1,20 @@
 package com.example.humanresources.enums;
 
-public enum LeaveEnum {
-     PATERNITY_LEAVE,
-     MATERNITY_LEAVE
+import lombok.Data;
 
+
+public enum LeaveEnum {
+     PATERNITY_LEAVE("200"),
+     MATERNITY_LEAVE("201"),
+     PREGNANT_LEAVE("202");
+     private final String value;
+     private LeaveEnum(String value) {
+          this.value = value;
+     }
+
+     public String getValue() {
+          return value;
+     }
 
 
 }
