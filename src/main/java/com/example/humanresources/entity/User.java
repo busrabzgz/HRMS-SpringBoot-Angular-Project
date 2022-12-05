@@ -7,6 +7,7 @@ import lombok.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,22 +17,36 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class User extends AbstractEntity{
-    
-    private String firsName;
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private LocalDateTime createDate = LocalDateTime.now();
+    @Version
+    @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
+    private Long version = 0L;
+
+
+    private String firstName;
     private String lastName;
     private String citizenNumber;
     private String gender;
+    private Date birthOfDate;
     private String position;
     private BigDecimal salary;
     private String  level;
+    private LocalDateTime startToWork;
+
     private String email;
-    private String password;
+    private String phoneNumber;
+
+
+
 
     @Override
     public String toString() {
         return "User{" +
-                "firsName='" + firsName + '\'' +
+                "firsName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", citizenNumber='" + citizenNumber + '\'' +
                 ", gender='" + gender + '\'' +
@@ -39,7 +54,6 @@ public class User extends AbstractEntity{
                 ", salary=" + salary +
                 ", level='" + level + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 '}';
     }
 

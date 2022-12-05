@@ -1,29 +1,37 @@
 package com.example.humanresources.dto.responseDTO;
 
-import com.example.humanresources.dto.AbstractDTO;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserResponseDto extends AbstractDTO {
+public class UserResponseDto  {
+    private Long id;
+    private LocalDateTime createDate = LocalDateTime.now();
+    private Long version = 0L;
 
-    private String firsName;
+
+    private String firstName;
     private String lastName;
     private String citizenNumber;
-    private LocalDateTime birtOfDate;
-    private LocalDateTime firstStartedWork;
+    private String gender;
+    private Date birthOfDate;
     private String position;
     private BigDecimal salary;
     private String  level;
+    private LocalDateTime startToWork;
+
     private String email;
-    private DepartmentResponseDto departmentResponseDto;
-    private ChargeResponseDto chargeResponseDto;
+    private String phoneNumber;
+
+
 
 }

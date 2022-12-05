@@ -13,7 +13,15 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Leave  extends AbstractEntity{
+public class Leave  {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private LocalDateTime createDate = LocalDateTime.now();
+    @Version
+    @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
+    private Long version = 0L;
+
 
 
     private String name;

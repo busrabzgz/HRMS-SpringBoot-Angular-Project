@@ -1,10 +1,5 @@
 package com.example.humanresources.common;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.List;
-
-import com.example.humanresources.entity.GenericEntity;
 //import org.apache.commons.lang3.reflect.FieldUtils;
 
 public final class ReflectionUtil {

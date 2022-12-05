@@ -14,7 +14,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Charge extends AbstractEntity{
+public class Charge {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private LocalDateTime createDate = LocalDateTime.now();
+    @Version
+    @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
+    private Long version = 0L;
+
 
 
     private String name;

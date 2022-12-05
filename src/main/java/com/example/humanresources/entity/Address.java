@@ -1,16 +1,22 @@
 package com.example.humanresources.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
 @Entity
-public class Address extends AbstractEntity{
+public class Address {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private LocalDateTime createDate = LocalDateTime.now();
+    @Version
+    @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
+    private Long version = 0L;
+
     private String country;
     private String city;
     private String quarter;

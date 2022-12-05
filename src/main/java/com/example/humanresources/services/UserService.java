@@ -1,35 +1,72 @@
 package com.example.humanresources.services;
 
-import com.example.humanresources.dto.GenericDTO;
+import com.example.humanresources.dto.requestDTO.UserBusinessInfoRequestDto;
+import com.example.humanresources.dto.requestDTO.UserContactInfoRequestDto;
+import com.example.humanresources.dto.requestDTO.UserPersonalInfoRequestDto;
 import com.example.humanresources.dto.requestDTO.UserRequestDto;
+import com.example.humanresources.dto.responseDTO.UserBusinessInfoResponseDto;
+import com.example.humanresources.dto.responseDTO.UserContactInfoResponseDto;
+import com.example.humanresources.dto.responseDTO.UserPersonalInfoResponseDto;
 import com.example.humanresources.dto.responseDTO.UserResponseDto;
 import com.example.humanresources.entity.User;
 import com.example.humanresources.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
-public class UserService extends AbstractService<User, UserRequestDto, UserResponseDto> {
+public class UserService {
 
     private UserRepository userRepository;
 
-    @Override
-    public UserResponseDto update(UserRequestDto requestDTO) throws Exception {
-        User user = userRepository.getReferenceById(requestDTO.getId());
-        requestDTO.setCitizenNumber(user.getCitizenNumber());
-        return super.update(requestDTO);
+    public UserResponseDto addUser(UserRequestDto userRequestDto) throws Exception{
+        User newUser = userRepository.getReferenceById(userRequestDto.getId());
+        if (newUser != null){
+            throw new Exception("User already exsist!");
+        }
+
+        return null;
     }
 
-    //    public User update(UserRequestDto userRequestDto) throws Exception {
-//
-//        User user = repository.getReferenceById(userRequestDto.getId());
-//        user.setFirsName(userRequestDto.getFirsName());
-//        user.setLastName(userRequestDto.getLastName());
-//        user.setSalary(userRequestDto.getSalary());
-//        user.setLevel(userRequestDto.getLevel());
-//        user.setPosition(userRequestDto.getPosition());
-//        return super.update(user);
-//    }
+    public UserPersonalInfoResponseDto updateUserPersonalInfo(UserPersonalInfoRequestDto userPersonalInfoRequestDto) throws Exception {
+        User user = userRepository.getReferenceById(userPersonalInfoRequestDto.getId());
+        user.setFirstName(userPersonalInfoRequestDto.getFirstName());
+        user.setLastName(userPersonalInfoRequestDto.getLastName());
+        user.setBirthOfDate(userPersonalInfoRequestDto.getBirthOfDate());
+        user.setCitizenNumber(userPersonalInfoRequestDto.getCitizenNumber());
+        return null;
+    }
+    public UserContactInfoResponseDto updateUserContactInfo(UserContactInfoRequestDto userContactInfoRequestDto)throws Exception{
+        User user=userRepository.getReferenceById(userContactInfoRequestDto.getId());
+        user.setPhoneNumber(userContactInfoRequestDto.getPhoneNumber());
+        user.setEmail(userContactInfoRequestDto.getEmail());
+
+        return null;
+    }
+    public UserBusinessInfoResponseDto updateUserBusinessInfo(UserBusinessInfoRequestDto userBusinessInfoRequestDto) throws Exception{
+        User user=userRepository.getReferenceById(userBusinessInfoRequestDto.getId());
+        user.setPosition(userBusinessInfoRequestDto.getPosition());
+        user.setLevel(userBusinessInfoRequestDto.getLevel());
+        user.setSalary(userBusinessInfoRequestDto.getSalary());
+        return null;
+    }
+
+        public List<User> findAllUser(){
+        return userRepository.findAll();
+    }
+
+
+        public void deleteUserById(Long id){
+        userRepository.deleteById(id);
+    }
+
+        public Optional<User> findUserById(Long id){
+        return userRepository.findById(id);
+    }
+
+
 
 }
