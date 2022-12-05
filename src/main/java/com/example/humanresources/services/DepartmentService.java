@@ -3,17 +3,13 @@ package com.example.humanresources.services;
 
 import com.example.humanresources.dto.requestDTO.DepartmentRequestDto;
 import com.example.humanresources.dto.responseDTO.DepartmentResponseDto;
-import com.example.humanresources.entity.Charge;
 import com.example.humanresources.entity.Department;
 import com.example.humanresources.repository.DepartmentRepository;
 import com.example.humanresources.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 public class DepartmentService extends AbstractService<Department, DepartmentRequestDto, DepartmentResponseDto> {

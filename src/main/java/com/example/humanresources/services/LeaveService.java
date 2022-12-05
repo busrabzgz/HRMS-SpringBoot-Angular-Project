@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Optional;
 @RequiredArgsConstructor
 @Service
-
 public class LeaveService extends AbstractService<Leave, LeaveRequestDto, LeaveResponseDto> {
 
     private UserRepository userRepository;

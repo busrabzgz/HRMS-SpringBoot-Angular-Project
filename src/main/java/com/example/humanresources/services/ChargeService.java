@@ -7,10 +7,6 @@ import com.example.humanresources.repository.ChargesRepository;
 import com.example.humanresources.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 
 @Service
 public class ChargeService extends AbstractService<Charge, ChargeRequestDto, ChargeResponseDto>{
