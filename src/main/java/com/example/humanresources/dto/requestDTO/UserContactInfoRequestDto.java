@@ -14,5 +14,5 @@ public class UserContactInfoRequestDto {
     private Long version = 0L;
     private String email;
     private String phoneNumber;
-    private AddessInfoRequestDto addessInfoRequestDto;
+    private AddressInfoRequestDto addressInfoRequestDto;
 }

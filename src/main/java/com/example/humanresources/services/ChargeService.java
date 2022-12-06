@@ -19,6 +19,7 @@ public class ChargeService {
 
     private ChargesRepository chargesRepository;
 
+
     public EnterChargeResponseDto addCharge(EnterChargeRequestDto enterChargeRequestDto) {
         EnterChargeRequestDto newCharge = new EnterChargeRequestDto();
 
@@ -28,11 +29,11 @@ public class ChargeService {
 
     public EnterChargeResponseDto updateCharge(EnterChargeRequestDto enterChargeRequestDto) {
         Charge newCharge = new Charge();
-        newCharge.setName(enterChargeRequestDto.getName());
-        newCharge.setType(enterChargeRequestDto.getType());
-        newCharge.setDate(enterChargeRequestDto.getDate());
-        newCharge.setPrice(enterChargeRequestDto.getPrice());
-        newCharge.setDescription(enterChargeRequestDto.getDescription());
+//        newCharge.setName(enterChargeRequestDto.getName());
+//        newCharge.setType(enterChargeRequestDto.getType());
+//        newCharge.setDate(enterChargeRequestDto.getDate());
+//        newCharge.setPrice(enterChargeRequestDto.getPrice());
+//        newCharge.setDescription(enterChargeRequestDto.getDescription());
         return null;
     }
     public void deleteByChargeId(Long id){

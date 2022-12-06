@@ -3,9 +3,11 @@ package com.example.humanresources.dto.requestDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 @Data
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class DepartmentInfoRequestDto {

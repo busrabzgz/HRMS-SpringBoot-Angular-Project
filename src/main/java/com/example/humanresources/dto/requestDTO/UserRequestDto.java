@@ -32,7 +32,7 @@ public class UserRequestDto  {
     private String email;
     private String phoneNumber;
 
-    private AddessInfoRequestDto addessInfoRequestDto;// tek tek eklemeli miyim
+    private AddressInfoRequestDto addressInfoRequestDto;// tek tek eklemeli miyim
 
 
 
