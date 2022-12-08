@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,11 +28,9 @@ public class Charge {
 
 
 
-    private String name;
-    private LocalDateTime date;
-    private String type;
+    private byte[] image;
     private String description;
-    private BigDecimal price;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")

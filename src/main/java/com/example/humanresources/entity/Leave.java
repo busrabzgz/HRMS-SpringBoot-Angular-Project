@@ -23,14 +23,16 @@ public class Leave  {
     private Long version = 0L;
 
 
+    @Enumerated
+    private LeaveEnum type;
 
-    private String name;
+    private Integer totalDays;
     private LocalDateTime startOfLeave;
     private LocalDateTime endOfLeave;
     private String description;
+    private LocalDateTime dateOfReturn;
 
-    @Enumerated
-    private LeaveEnum type;
+
 
 
     @ManyToOne
