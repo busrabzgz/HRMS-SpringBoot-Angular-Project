@@ -1,29 +1,19 @@
-package com.example.humanresources.entity;
-
+package com.example.humanresources.dto.responseDTO;
 
 import com.example.humanresources.enums.LeaveTypeEnum;
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Enumerated;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@Builder
-@Entity
-@EqualsAndHashCode
-@ToString
-public class Leave  {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+@AllArgsConstructor
+public class LeaveResponseDto {
     private Long id;
     private LocalDateTime createDate = LocalDateTime.now();
-    @Version
-    @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
     private Long version = 0L;
-
 
     @Enumerated
     private LeaveTypeEnum type;
@@ -33,14 +23,6 @@ public class Leave  {
     private LocalDateTime endOfLeave;
     private String description;
     private LocalDateTime dateOfReturn;
-
-
-
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-
+    private Long userId;
 
 }

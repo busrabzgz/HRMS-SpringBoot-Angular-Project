@@ -1,11 +1,11 @@
 package com.example.humanresources.entity;
 
 
-import com.example.humanresources.enums.LeaveTypeEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Entity
 @EqualsAndHashCode
 @ToString
-public class Leave  {
+public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -23,23 +23,25 @@ public class Leave  {
     @Version
     @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
     private Long version = 0L;
-
-
-    @Enumerated
-    private LeaveTypeEnum type;
-
-    private Integer totalDays;
-    private LocalDateTime startOfLeave;
-    private LocalDateTime endOfLeave;
     private String description;
-    private LocalDateTime dateOfReturn;
-
-
-
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(mappedBy = "expense")
+    private List<Receipt> receipts;
+
+
+//    @OneToMany
+//    private List<Charge> charges;
+
+//    @ManyToMany(mappedBy = "charges")
+//    private List<User> employees;
+
+
+
+
 
 
 

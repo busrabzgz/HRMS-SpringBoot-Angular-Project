@@ -1,18 +1,25 @@
 package com.example.humanresources.mapper;
 
-import com.example.humanresources.dto.requestDTO.EnterLeaveRequestDto;
-import com.example.humanresources.dto.responseDTO.EnterLeaveResponseDto;
+import com.example.humanresources.dto.requestDTO.CreateLeaveRequestDto;
+import com.example.humanresources.dto.requestDTO.CreateOvertimeWorkRequestDto;
+import com.example.humanresources.dto.requestDTO.UpdateLeaveRequestDto;
+import com.example.humanresources.dto.requestDTO.UpdateOvertimeWorkRequestDto;
+import com.example.humanresources.dto.responseDTO.LeaveResponseDto;
+import com.example.humanresources.dto.responseDTO.OvertimeWorkResponseDto;
 import com.example.humanresources.entity.Leave;
+import com.example.humanresources.entity.OvertimeWork;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 
-@Mapper(implementationName = "LeaveMapperImpl" , componentModel = "spring")
+@Mapper(componentModel = "spring")
 public interface LeaveMapper {
-    @Mapping(target = "id", source = "id")
-    Leave toLeaveFromEnterLeaveRequestDto(EnterLeaveRequestDto enterLeaveRequestDto);
-
-    @Mapping(target = "id",source = "id")
-    EnterLeaveResponseDto toEnterLeaveResponseFromLeave(Leave leave);
+    @Mapping(source = "userId", target = "user.id", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
+    Leave toLeaveFromCreateLeaveRequestDto(CreateLeaveRequestDto leaveRequestDto);
 
 
+
+    Leave toLeaveFromUpdateLeaveRequestDto(UpdateLeaveRequestDto leaveRequestDto);
+    @Mapping(source = "user.id", target = "userId")
+    LeaveResponseDto toLeaveResponseDtoFromLeave(Leave leave);
 }

@@ -1,8 +1,12 @@
 package com.example.humanresources.services;
 
-import com.example.humanresources.dto.requestDTO.EnterLeaveRequestDto;
-import com.example.humanresources.dto.responseDTO.EnterLeaveResponseDto;
+import com.example.humanresources.dto.requestDTO.CreateLeaveRequestDto;
+import com.example.humanresources.dto.requestDTO.CreateOvertimeWorkRequestDto;
+import com.example.humanresources.dto.responseDTO.LeaveResponseDto;
+import com.example.humanresources.dto.responseDTO.OvertimeWorkResponseDto;
 import com.example.humanresources.entity.Leave;
+import com.example.humanresources.entity.OvertimeWork;
+import com.example.humanresources.mapper.LeaveMapper;
 import com.example.humanresources.repository.LeaveRepository;
 import com.example.humanresources.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,20 +21,23 @@ public class LeaveService {
 
     private UserRepository userRepository;
     private LeaveRepository leaveRepository;
+    private LeaveMapper leaveMapper;
 
-    public EnterLeaveResponseDto addLeave(EnterLeaveRequestDto enterLeaveRequestDto) throws Exception {
-        Leave newLeave = leaveRepository.getReferenceById(enterLeaveRequestDto.getId());
+    public LeaveResponseDto createLeave(CreateLeaveRequestDto createLeaveRequestDto)  throws Exception{
+        Leave leave = leaveMapper.toLeaveFromCreateLeaveRequestDto(createLeaveRequestDto);
+
+        leave.setUser(userRepository.getReferenceById(createLeaveRequestDto.getUserId()));
+
+        return leaveMapper.toLeaveResponseDtoFromLeave(leaveRepository.save(leave));
 
 
-        return null;
     }
-
-    public EnterLeaveResponseDto updateLeave(EnterLeaveRequestDto enterLeaveRequestDto) throws Exception {
-        Leave leave = leaveRepository.getReferenceById(enterLeaveRequestDto.getId());
-        leave.setStartOfLeave(enterLeaveRequestDto.getStartOfLeave());
-        leave.setEndOfLeave(enterLeaveRequestDto.getEndOfLeave());
+    public LeaveResponseDto updateLeave(CreateLeaveRequestDto createLeaveRequestDto) throws Exception {
+        Leave leave = leaveRepository.getReferenceById(createLeaveRequestDto.getUserId());
+        leave.setStartOfLeave(createLeaveRequestDto.getStartOfLeave());
+        leave.setEndOfLeave(createLeaveRequestDto.getEndOfLeave());
         // leave.setType(enterLeaveRequestDto.setType());//enum geçme
-        leave.setDescription(enterLeaveRequestDto.getDescription());
+        leave.setDescription(createLeaveRequestDto.getDescription());
 
         return null;
 
@@ -46,6 +53,10 @@ public class LeaveService {
     public void deleteByLeaveById(Long id){
         leaveRepository.deleteById(id);
 
+    }
+
+    public void deleteLeave(Long id) {
+        leaveRepository.deleteById(id);
     }
 
 

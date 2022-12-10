@@ -1,21 +1,22 @@
 package com.example.humanresources.entity;
 
-
-import com.example.humanresources.enums.LeaveTypeEnum;
+import com.example.humanresources.enums.ExpenseReceiptEnum.CategoryEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
 @EqualsAndHashCode
 @ToString
-public class Leave  {
+public class Receipt {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -24,23 +25,21 @@ public class Leave  {
     @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
     private Long version = 0L;
 
+    private byte[] billImage;
 
     @Enumerated
-    private LeaveTypeEnum type;
+    private CategoryEnum category;
+    private BigDecimal amount;
 
-    private Integer totalDays;
-    private LocalDateTime startOfLeave;
-    private LocalDateTime endOfLeave;
+    private LocalDate dateOfReceipt;
+
+    private String salesTaxRate;
     private String description;
-    private LocalDateTime dateOfReturn;
-
-
 
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
+    @JoinColumn(name = "expense_id")
+    private Expense expense;
 
 
 }

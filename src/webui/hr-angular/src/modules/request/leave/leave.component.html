@@ -1,3 +1,37 @@
-<div>
-  <p-dropdown [options]="leaveType" [(ngModel)]="selectedLeaveType" optionLabel="name" optionValue="json"></p-dropdown>
+
+<div class="grid p-fluid">
+  <div class="col-12 md:col-6">
+    <label >İzin Türü</label>
+    <p-dropdown [options]="leaveType" [(ngModel)]="selectedLeaveType" optionLabel="name" optionValue="json"></p-dropdown>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <label>Toplam Gün</label>
+    <div class="p-inputgroup">
+      <input type="text" pInputText [placeholder]="'Gün Sayısı' + leaveDay" [disabled]="true"  >
+      <button type="button" pButton pRipple icon="pi pi-shopping-bag" styleClass="p-button-warn"></button>
+    </div>
+  </div>
+
+  <div class="field col-12 md:col-6">
+    <label >Başlangıç Tarihi ve Saati</label>
+    <p-calendar [(ngModel)]="date7" [showTime]="true" [showSeconds]="true" inputId="time" [showIcon]="true" inputId="icon"></p-calendar>
+  </div>
+
+  <div class="field col-12 md:col-6">
+    <label >Bitiş Tarihi ve Saati</label>
+    <p-calendar [(ngModel)]="date7" [showTime]="true" [showSeconds]="true" inputId="time" [showIcon]="true" inputId="icon"></p-calendar>
+  </div>
+
+  <div class="field col-12 md:col-12">
+    <label>Açıklama</label>
+    <textarea rows="5" cols="5" pInputTextarea></textarea>
+  </div>
+
+
+  <div class="field col-12 md:col-6">
+    <label>Dönüş Tarihi ve Saati</label>
+    <p-calendar [(ngModel)]="date7" [showTime]="true" [showSeconds]="true" inputId="time" [showIcon]="true" inputId="icon"></p-calendar>
+  </div>
+
 </div>

@@ -1,6 +1,8 @@
 package com.example.humanresources.entity;
 
 
+import com.example.humanresources.enums.DepartmentEnum;
+import com.example.humanresources.enums.LeaveTypeEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,8 +27,6 @@ public class User {
     @Version
     @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
     private Long version = 0L;
-
-
     private String firstName;
     private String lastName;
     private String citizenNumber;
@@ -37,11 +37,13 @@ public class User {
     private String  level;
     private LocalDateTime startToWork;
 
+
+
+    @Enumerated
+    private DepartmentEnum department;
     private String email;
     private String phoneNumber;
-
-
-
+    private String address;
 
     @Override
     public String toString() {
@@ -73,11 +75,13 @@ public class User {
 //    @OneToMany(mappedBy = "employee")
 //    private List<Leave> leaves;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Expense> expense;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<OvertimeWork> overtimeWork;
 
-
-
-
-
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Leave> leaves;
 
 }

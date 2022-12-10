@@ -1,10 +1,9 @@
 package com.example.humanresources.entity;
 
-
-import com.example.humanresources.enums.LeaveTypeEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
@@ -15,31 +14,28 @@ import java.time.LocalDateTime;
 @Entity
 @EqualsAndHashCode
 @ToString
-public class Leave  {
+public class Advance {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private LocalDateTime createDate = LocalDateTime.now();
     @Version
     @Column(columnDefinition = "integer DEFAULT 0", nullable = false)
     private Long version = 0L;
 
-
-    @Enumerated
-    private LeaveTypeEnum type;
-
-    private Integer totalDays;
-    private LocalDateTime startOfLeave;
-    private LocalDateTime endOfLeave;
+    private Long id;
+    private BigDecimal amount;
+    private LocalDateTime date;
+    private Integer repayment;
     private String description;
-    private LocalDateTime dateOfReturn;
-
-
-
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+
+
+
+
 
 
 
