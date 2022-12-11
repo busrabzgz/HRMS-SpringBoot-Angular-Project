@@ -15,6 +15,14 @@ import {AdvanceComponent} from "../modules/request/advance/advance.component";
 import {InputNumberModule} from "primeng/inputnumber";
 import {ExpenseComponent} from "../modules/request/expense/expense.component";
 import {DashbordComponent} from "../modules/dashbord/dashbord.component";
+import {OvertimeComponent} from "../modules/request/overTime/overtime.component";
+import {AvatarModule} from "primeng/avatar";
+import {EmployeeComponent} from "../modules/employee/employee.component";
+import {DataViewModule} from "primeng/dataview";
+import {CreateEmployeeComponent} from "../modules/employee/create-employee/create-employee.component";
+import {ChipModule} from "primeng/chip";
+import {EmployeeService} from "../services/employee.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,20 +32,28 @@ import {DashbordComponent} from "../modules/dashbord/dashbord.component";
     RequestComponent,
     AdvanceComponent,
     ExpenseComponent,
-    DashbordComponent
+    DashbordComponent,
+    OvertimeComponent,
+    EmployeeComponent,
+    CreateEmployeeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    AppPrimengModule,
-    MegaMenuModule,
-    TooltipModule,
-    FormsModule,
-    InputNumberModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        AppPrimengModule,
+        MegaMenuModule,
+        TooltipModule,
+        FormsModule,
+        InputNumberModule,
+        AvatarModule,
+        DataViewModule,
+        ChipModule,
+        HttpClientModule,
 
-  ],
+
+    ],
   providers: [
     APP_PRIMENG_PROVIDERS
   ],

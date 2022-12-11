@@ -32,8 +32,6 @@ export class LeaveComponent implements OnInit{
 
 
   ngOnInit(): void{
-
-
   }
 
 

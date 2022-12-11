@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class SidebarComponent implements OnInit {
   items: MegaMenuItem[];
-  showPopUpRequest = false;
+  showPopUpRequest: boolean;
   selectedType: string;
 
   constructor(private route: Router) {
@@ -30,8 +30,8 @@ export class SidebarComponent implements OnInit {
                   label: 'İzin',
                   icon: 'pi pi-shopping-bag',
                   command: event => {
+                    this.selectedType = 'İzin Talep Et';
                     this.showPopUpRequest = true;
-                    this.selectedType = 'leave';
                     console.log('selected', this.selectedType);
                   }
                 },
@@ -39,8 +39,8 @@ export class SidebarComponent implements OnInit {
                   label: 'Avans',
                   icon: 'pi pi-money-bill',
                   command: event => {
+                    this.selectedType = 'Avans Talep Et';
                     this.showPopUpRequest = true;
-                    this.selectedType = 'advance';
                     console.log('selected', this.selectedType);
                   }
                 },
@@ -48,8 +48,8 @@ export class SidebarComponent implements OnInit {
                   label: 'Harcama',
                   icon: 'pi pi-cart-plus',
                   command: event => {
+                    this.selectedType = 'Harcama Talep Et';
                     this.showPopUpRequest = true;
-                    this.selectedType = 'expense';
                     console.log('selected', this.selectedType);
                   }
                 },
@@ -57,7 +57,9 @@ export class SidebarComponent implements OnInit {
                   label: 'Fazla Mesai',
                   icon: 'pi pi-chart-pie',
                   command: event => {
+                    this.selectedType='Fazla Mesai Talep Et';
                     this.showPopUpRequest = true;
+                    console.log('selected',this.selectedType);
 
                   }
                 },
@@ -74,6 +76,15 @@ export class SidebarComponent implements OnInit {
       },
       {
         label: 'Çalışanlar', icon: 'pi pi-fw pi-users',
+        command: event => {
+          this.route.navigate(['/employee']);
+        }
+      },
+      {
+        label: 'Profilim', icon: 'pi pi-user',
+        command: event => {
+          this.route.navigate(['/userProfile']);
+        }
       },
     ];
   }

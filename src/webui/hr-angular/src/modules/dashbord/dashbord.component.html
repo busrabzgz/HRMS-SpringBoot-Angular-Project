@@ -1,13 +1,25 @@
-<p>dashbord works!</p>
+
 <div class="grid p-fluid">
-  <div class="col-12 md:col-4">
-    <p-card>deneme</p-card>
+  <div class="col-12 md:col-6">
+    <p-card>
+      <p-calendar [(ngModel)]="date14" [inline]="true" [showWeek]="true">
+      </p-calendar>
+    </p-card>
   </div>
-  <div class="col-12 md:col-4">
-    <p-card ><h5>Inline</h5>
-      <p-calendar [(ngModel)]="date14" [inline]="true" [showWeek]="true"></p-calendar></p-card>
-  </div>
-  <div class="col-12 md:col-4">
-    <p-card>deneme</p-card>
+  <div class="col-12 md:col-6">
+    <p-card>
+      <div class="grid p-fluid" *ngFor="let user of [{name: 'Busra', birthDay: '11/10/1997'}, {name: 'Busra', birthDay: '11/10/1997'}]">
+        <div class="col-12 md:col-4">
+          <p-avatar icon="pi pi-user" styleClass="mr-2" size="large"
+                    [style]="{'background-color':'#2196F3', 'color': '#ffffff'}"></p-avatar>
+        </div>
+        <div class="col-12 md:col-4">
+          <p>{{user.name}}</p>
+        </div>
+        <div class="col-12 md:col-4">
+          <p>{{user.birthDay}}</p>
+        </div>
+      </div>
+    </p-card>
   </div>
 </div>

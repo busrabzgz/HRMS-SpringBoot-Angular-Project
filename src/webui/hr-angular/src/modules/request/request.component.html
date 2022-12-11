@@ -1,10 +1,11 @@
-<p-dialog header="Long Content" [(visible)]="displayBasic" [style]="{width: '60vw', height:'500px'}" [modal]="true" [baseZIndex]="100000">
-  <leave *ngIf="selectedType === 'leave'"></leave>
-  <advance *ngIf="selectedType === 'advance'"></advance>
-  <expense *ngIf="selectedType === 'expense'"></expense>
+<p-dialog [header]="selectedType" [(visible)]="displayBasic" (visibleChange)="closeTab.emit(false);" [style]="{width: '60vw', height:'500px'}" [modal]="true" [baseZIndex]="100000">
+  <leave *ngIf="selectedType === 'İzin Talep Et'"></leave>
+  <advance *ngIf="selectedType === 'Avans Talep Et'"></advance>
+  <expense *ngIf="selectedType === 'Harcama Talep Et'"></expense>
+  <overtime *ngIf="selectedType==='Fazla Mesai Talep Et'"></overtime>
   <ng-template pTemplate="footer">
-    <p-button icon="pi pi-check" (click)="displayBasic=false; closeTab.emit(false);" label="Yes" class="p-button-text"></p-button>
-    <p-button icon="pi pi-times" (click)="displayBasic=false; closeTab.emit(false);" label="No"></p-button>
+    <p-button icon="pi pi-check" (click)="displayBasic=false; closeTab.emit(false);" label="Kaydet" class="p-button-text"></p-button>
+    <p-button icon="pi pi-times" (click)="displayBasic=false; closeTab.emit(false);" label="Vazgeç"></p-button>
   </ng-template>
 </p-dialog>
 

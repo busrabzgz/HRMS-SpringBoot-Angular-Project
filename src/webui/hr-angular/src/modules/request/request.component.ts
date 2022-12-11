@@ -5,9 +5,9 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
   templateUrl: 'request.component.html'
 })
 export class RequestComponent {
-  @Input() displayBasic=true;
+  @Input() displayBasic = false;
   @Input() selectedType: string;
-  @Output() closeTab= new EventEmitter<boolean> ();
+  @Output() closeTab = new EventEmitter<boolean> ();
 
   showBasicDialog() {
     this.displayBasic = !this.displayBasic;

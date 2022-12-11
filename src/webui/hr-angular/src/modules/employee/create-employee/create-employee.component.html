@@ -1,0 +1,92 @@
+<p-dialog [header]="'Çalışan Ekle'" [closable]="false" [(visible)]="displayBasic" [style]="{width: '60vw', height:'500px'}" [modal]="true" [baseZIndex]="100000">
+
+  <div class="grid p-fluid">
+    <div class="col-12 md:col-4">
+      <span>Ön Adı</span>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input type="text" [(ngModel)]="firstName" pInputText placeholder="Ön Adı">
+      </div>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <span>Soyadı</span>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input type="text" [(ngModel)]="lastName" pInputText placeholder="Soyadı">
+      </div>
+    </div>
+
+    <div class="col-12 lg:col-4">
+      <span>Tc Kimlik Numarası</span>
+      <p-inputMask mask="99-999999" [(ngModel)]="citizenNumber" placeholder="99-99-99-99-190"></p-inputMask>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <span>Cinsiyet</span>
+      <p-dropdown [options]="genderType" [(ngModel)]="gender" optionLabel="name" optionValue="json"></p-dropdown>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-4">
+      <span>Doğum Tarihi</span>
+      <p-inputMask mask="99/99/9999" [(ngModel)]="birthDay" placeholder="99/99/9999" slotChar="mm/dd/yyyy"></p-inputMask>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <span>Pozisyon</span>
+      <p-dropdown [options]="positionType" [(ngModel)]="position" optionLabel="name" optionValue="json"></p-dropdown>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <span>Maaşı</span>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">$</span>
+        <input type="text" [(ngModel)]="salary" pInputText placeholder="Maaşı">
+        <span class="p-inputgroup-addon">.00</span>
+      </div>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <span>Seviyesi</span>
+      <p-dropdown [options]="levelType" [(ngModel)]="level" optionLabel="name" optionValue="json"></p-dropdown>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-4">
+      <span>İşe Başlama Tarihi</span>
+      <p-inputMask mask="99/99/9999" [(ngModel)]="workStartDate" placeholder="99/99/9999" slotChar="mm/dd/yyyy"></p-inputMask>
+    </div>
+    <div class="col-12 md:col-4">
+      <span>Departmanı</span>
+      <p-dropdown [options]="departmentType" [(ngModel)]="department" optionLabel="name" optionValue="json"></p-dropdown>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-4">
+      <span>Telefon Numarası</span>
+      <p-inputMask mask="(999) 999-9999" [(ngModel)]="phoneNumber" placeholder="(999) 999-9999"></p-inputMask>
+    </div>
+
+    <div class="  col-12 md:col-4">
+      <span>E-Mail</span>
+      <div class="p-inputgroup">
+        <span class="p-float-label">
+          <input id="float-input" type="text" pInputText [(ngModel)]="email" >
+          <label for="float-input">E-Mail</label>
+
+          </span>
+      </div>
+    </div>
+
+    <div class="field col-12 md:col-12">
+      <span>Adres</span>
+      <textarea rows="5" cols="5" [(ngModel)]="address" pInputTextarea></textarea>
+    </div>
+
+
+  </div>
+
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="createUser()" label="Kaydet" class="p-button-text"></p-button>
+    <p-button icon="pi pi-times" (click)="closeTab.emit(false);" label="Vazgeç"></p-button>
+  </ng-template>
+</p-dialog>
+

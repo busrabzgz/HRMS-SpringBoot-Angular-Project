@@ -1,17 +1,14 @@
 import {Component, OnInit} from "@angular/core";
 
 @Component({
-  selector:"expense",
-  templateUrl:"expense.component.html",
-  styleUrls:["expense.component.css"]
+  selector:"overtime",
+  templateUrl:"overtime.component.html",
+  styleUrls:["overtime.component.css"]
 })
-export class ExpenseComponent implements OnInit{
-
+export class OvertimeComponent implements OnInit{
   displayBasic = false;
-
-
-  value2: any;
-
+  date7: any;
+  value1: any;
   ngOnInit(): void{
 
 
@@ -20,7 +17,6 @@ export class ExpenseComponent implements OnInit{
     this.displayBasic=!this.displayBasic;
 
   }
-
 
 
 }
