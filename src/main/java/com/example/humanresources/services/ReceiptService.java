@@ -18,6 +18,10 @@ public class ReceiptService {
         return receiptRepository.saveAll(receipts);
     }
 
+    public List<Receipt> updateReceipt(List<Receipt> receipts){
+        return receiptRepository.saveAll(receipts);
+    }
+
     public void deleteReceipt(Long id) {
         receiptRepository.deleteById(id);
     }

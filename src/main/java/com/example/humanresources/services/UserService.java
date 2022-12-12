@@ -3,10 +3,13 @@ package com.example.humanresources.services;
 import com.example.humanresources.dto.requestDTO.CreateUserRequestDto;
 import com.example.humanresources.dto.requestDTO.UpdateUserRequestDto;
 import com.example.humanresources.dto.responseDTO.ExpenseResponseDto;
+import com.example.humanresources.dto.responseDTO.LeaveResponseDto;
 import com.example.humanresources.dto.responseDTO.UserResponseDto;
 import com.example.humanresources.entity.User;
 import com.example.humanresources.exception.UserNotFoundException;
+import com.example.humanresources.mapper.AdvanceMapper;
 import com.example.humanresources.mapper.ExpenseMapper;
+import com.example.humanresources.mapper.LeaveMapper;
 import com.example.humanresources.mapper.UserMapper;
 import com.example.humanresources.repository.AdvanceRepository;
 import com.example.humanresources.repository.LeaveRepository;
@@ -28,18 +31,22 @@ import java.util.stream.Collectors;
 public class UserService {
 
 
+
     private final UserRepository userRepository;
 
     private final UserMapper userMapper;
 
     private final LeaveService leaveService;
     private final LeaveRepository leaveRepository;
+    private final LeaveMapper leaveMapper;
     private final ExpenseService expenseService;
 
     private final ExpenseMapper expenseMapper;
 
-    private AdvanceService advanceService;
-    private AdvanceRepository advanceRepository;
+    private final AdvanceService advanceService;
+    private final AdvanceRepository advanceRepository;
+    private final AdvanceMapper advanceMapper;
+
 
     public UserResponseDto createUser(CreateUserRequestDto createUserRequestDto) throws Exception {
         // burada henüz database kayıt olmadığı için id yok
@@ -93,48 +100,13 @@ public class UserService {
         return expenseMapper.toExpenseResponseDtosFromExpenses(expenseService.findAllExpenseByUserId(user));
     }
 
+    public List<LeaveResponseDto> getUserLeave(Long id) {
+        User user = userRepository.getReferenceById(id);
+        return leaveMapper.toLeaveResponseDtosFromLeaves(leaveService.findAllLeaveByUserId(user));
+    }
 
-//    public UserResponseDto addUser(UserRequestDto userRequestDto) throws Exception{
-////        User newUser = userRepository.getReferenceById(userRequestDto.getId());
-////        if (newUser != null){
-////            throw new Exception("User already exsist!");
-////        }
-//
-//    public UserPersonalInfoResponseDto updateUserPersonalInfo(UserPersonalInfoRequestDto userPersonalInfoRequestDto) throws Exception {
-//        User user = userRepository.getReferenceById(userPersonalInfoRequestDto.getId());
-//        user.setFirstName(userPersonalInfoRequestDto.getFirstName());
-//        user.setLastName(userPersonalInfoRequestDto.getLastName());
-//        user.setBirthOfDate(userPersonalInfoRequestDto.getBirthOfDate());
-//        user.setCitizenNumber(userPersonalInfoRequestDto.getCitizenNumber());
-//        return null;
-//    }
-//    public UserContactInfoResponseDto updateUserContactInfo(UserContactInfoRequestDto userContactInfoRequestDto)throws Exception{
-//        User user=userRepository.getReferenceById(userContactInfoRequestDto.getId());
-//        user.setPhoneNumber(userContactInfoRequestDto.getPhoneNumber());
-//        user.setEmail(userContactInfoRequestDto.getEmail());
-//
-//        return null;
-//    }
-//    public UserBusinessInfoResponseDto updateUserBusinessInfo(UserBusinessInfoRequestDto userBusinessInfoRequestDto) throws Exception{
-//        User user=userRepository.getReferenceById(userBusinessInfoRequestDto.getId());
-//        user.setPosition(userBusinessInfoRequestDto.getPosition());
-//        user.setLevel(userBusinessInfoRequestDto.getLevel());
-//        user.setSalary(userBusinessInfoRequestDto.getSalary());
-//        return null;
-//    }
-//
-//        public List<User> findAllUser(){
-//        return userRepository.findAll();
-//    }
-//
-//
-//        public void deleteUserById(Long id){
-//        userRepository.deleteById(id);
-//    }
-//
-//        public Optional<User> findUserById(Long id){
-//        return userRepository.findById(id);
-//    }
+
+
 
 
 }

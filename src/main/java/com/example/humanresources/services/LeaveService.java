@@ -2,13 +2,18 @@ package com.example.humanresources.services;
 
 import com.example.humanresources.dto.requestDTO.CreateLeaveRequestDto;
 import com.example.humanresources.dto.requestDTO.CreateOvertimeWorkRequestDto;
+import com.example.humanresources.dto.requestDTO.UpdateLeaveRequestDto;
 import com.example.humanresources.dto.responseDTO.LeaveResponseDto;
 import com.example.humanresources.dto.responseDTO.OvertimeWorkResponseDto;
+import com.example.humanresources.dto.responseDTO.UserResponseDto;
+import com.example.humanresources.entity.Expense;
 import com.example.humanresources.entity.Leave;
 import com.example.humanresources.entity.OvertimeWork;
+import com.example.humanresources.entity.User;
 import com.example.humanresources.mapper.LeaveMapper;
 import com.example.humanresources.repository.LeaveRepository;
 import com.example.humanresources.repository.UserRepository;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +21,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
+@AllArgsConstructor
 @Service
 public class LeaveService {
 
@@ -29,17 +35,20 @@ public class LeaveService {
         leave.setUser(userRepository.getReferenceById(createLeaveRequestDto.getUserId()));
 
         return leaveMapper.toLeaveResponseDtoFromLeave(leaveRepository.save(leave));
-
-
     }
-    public LeaveResponseDto updateLeave(CreateLeaveRequestDto createLeaveRequestDto) throws Exception {
-        Leave leave = leaveRepository.getReferenceById(createLeaveRequestDto.getUserId());
-        leave.setStartOfLeave(createLeaveRequestDto.getStartOfLeave());
-        leave.setEndOfLeave(createLeaveRequestDto.getEndOfLeave());
+    public LeaveResponseDto updateLeave(UpdateLeaveRequestDto updateLeaveRequestDto) throws Exception {
+        Leave leave = leaveRepository.getReferenceById(updateLeaveRequestDto.getUserId());
+        leave.setType(updateLeaveRequestDto.getType());
+        leave.setTotalDays(updateLeaveRequestDto.getTotalDays());
+        leave.setStartOfLeave(updateLeaveRequestDto.getStartOfLeave());
+        leave.setEndOfLeave(updateLeaveRequestDto.getEndOfLeave());
         // leave.setType(enterLeaveRequestDto.setType());//enum geçme
-        leave.setDescription(createLeaveRequestDto.getDescription());
+        leave.setDescription(updateLeaveRequestDto.getDescription());
+        leave.setDateOfReturn(updateLeaveRequestDto.getDateOfReturn());
+        leave=leaveRepository.save(leave);
+        LeaveResponseDto leaveResponseDto = leaveMapper.toLeaveResponseDtoFromLeave(leave);
 
-        return null;
+        return leaveResponseDto;
 
     }
 
@@ -55,15 +64,10 @@ public class LeaveService {
 
     }
 
-    public void deleteLeave(Long id) {
-        leaveRepository.deleteById(id);
+
+    public List<Leave> findAllLeaveByUserId(User user) {
+        return leaveRepository.getByUserId(user);
     }
-
-
-
-
-
-
 }
 
 

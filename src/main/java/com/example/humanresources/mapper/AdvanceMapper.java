@@ -13,6 +13,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface AdvanceMapper {
     @Mapping(source = "userId", target = "user.id")
@@ -23,4 +25,7 @@ public interface AdvanceMapper {
     Advance toAdvanceFromUpdateAdvanceRequestDto(UpdateAdvanceRequestDto advanceRequestDto);
     @Mapping(source = "user.id", target = "userId")
     AdvanceResponseDto toAdvanceResponseDtoFromAdvance(Advance advance);
+
+
+    List<AdvanceResponseDto> toAdvanceResponseDtosFromAdvances(List<Advance> advanceList);
 }

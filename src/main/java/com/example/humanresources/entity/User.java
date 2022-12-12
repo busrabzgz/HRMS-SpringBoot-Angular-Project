@@ -84,4 +84,7 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY)
     private List<Leave> leaves;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Advance> advances;
+
 }

@@ -3,6 +3,7 @@ package com.example.humanresources.controller;
 import com.example.humanresources.dto.requestDTO.CreateUserRequestDto;
 import com.example.humanresources.dto.requestDTO.UpdateUserRequestDto;
 import com.example.humanresources.dto.responseDTO.ExpenseResponseDto;
+import com.example.humanresources.dto.responseDTO.LeaveResponseDto;
 import com.example.humanresources.dto.responseDTO.UserResponseDto;
 import com.example.humanresources.services.UserService;
 import jakarta.validation.Valid;
@@ -48,14 +49,19 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    @GetMapping("getAllUsers")
+    @GetMapping("/getAllUsers")
     public ResponseEntity<List<UserResponseDto>> getAllUsers(Pageable pageable){
         return  ResponseEntity.ok(userService.getAllUsers(pageable));
     }
 
-    @GetMapping("expense")
+    @GetMapping("/expense")
     public ResponseEntity<List<ExpenseResponseDto>> getUserExpense(Long id){
         return  ResponseEntity.ok(userService.getUserExpense(id));
+    }
+
+    @GetMapping("/leave")
+    public ResponseEntity<List<LeaveResponseDto>> getUserLeave(Long id){
+        return ResponseEntity.ok(userService.getUserLeave(id));
     }
 
 
