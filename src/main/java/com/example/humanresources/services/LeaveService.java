@@ -65,7 +65,7 @@ public class LeaveService {
         leave.setEndOfLeave(updateLeaveRequestDto.getEndOfLeave());
         leave.setDescription(updateLeaveRequestDto.getDescription());
         leave.setDateOfReturn(updateLeaveRequestDto.getDateOfReturn());
-            leave=leaveRepository.save(leave);
+        leave=leaveRepository.save(leave);
         });
 
         return leaveOptional.map(leaveMapper::toLeaveResponseDtoFromLeave)
@@ -81,33 +81,13 @@ public class LeaveService {
         leaveRepository.deleteById(id);
 
     }
-    public List<Leave> findAlLeave() {
-        return leaveRepository.findAll();
-    }
-
 
     public List<Leave> findAllLeaveByUserId(User user) {
         return leaveRepository.getByUserId(user);
     }
+    public List<Leave> findAlLeave() {
+        return leaveRepository.findAll();
+    }
 }
 
 
-
-//
-//    public Leave saveLeave(Leave leave) {
-//        Leave newLeave = new Leave();
-//        newLeave.setEmployee(userRepository.getById(leave.getEmployee().getId()));
-//        return leaveRepository.save(newLeave);
-//    }
-//    public void deleteByLeaveId(Long id){
-//        leaveRepository.deleteById(id);
-//    }
-//    public List<Leave> findAlLeave(){
-//        return leaveRepository.findAll();
-//    }
-//    public Optional<Leave> findLeaveById(Long id){
-//        return leaveRepository.findById(id);
-////    }// SEARCH METHODU USER ID ALIR TARIH ARALIGI ALIR DATA BASEDE LEAVE TABLOSUNDA USER ID YE SELECT ATACAGIM KULLANICA DÖNECEĞİM
-//// FINDBAY STARTDATE ENDDATE YAPISINA ÇEVİRVE , SPRİNG DATA JPA QUERY
-//
-//}

@@ -1,8 +1,7 @@
 package com.example.humanresources.entity;
 
 
-import com.example.humanresources.enums.DepartmentEnum;
-import com.example.humanresources.enums.LeaveTypeEnum;
+import com.example.humanresources.enums.*;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,8 +15,7 @@ import java.util.List;
 @Table(name="employee")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
 @Builder
 public class User {
     @Id
@@ -30,17 +28,25 @@ public class User {
     private String firstName;
     private String lastName;
     private String citizenNumber;
-    private String gender;
+
     private Date birthOfDate;
-    private String position;
+
     private BigDecimal salary;
-    private String  level;
+
     private LocalDateTime startToWork;
 
 
 
     @Enumerated
     private DepartmentEnum department;
+    @Enumerated
+    private GenderTypeEnum gender;
+
+    @Enumerated
+    private PositionTypeEnum position;
+
+    @Enumerated
+    private LevelTypeEnum level;
     private String email;
     private String phoneNumber;
     private String address;

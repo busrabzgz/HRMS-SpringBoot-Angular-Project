@@ -35,7 +35,7 @@ public class ExpenseService {
     private final ExpenseMapper expenseMapper;
     private final ReceiptService receiptService;
 
-    @Transactional
+
     public ExpenseResponseDto createExpense(CreateExpenseRequestDto createExpenseRequestDto) {
         Expense expense = expenseMapper.toExpenseFromCreateExpenseRequestDto(createExpenseRequestDto);
 

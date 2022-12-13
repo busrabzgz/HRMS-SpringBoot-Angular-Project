@@ -5,7 +5,6 @@ import com.example.humanresources.dto.requestDTO.UpdateAdvanceRequestDto;
 
 import com.example.humanresources.dto.responseDTO.AdvanceResponseDto;
 import com.example.humanresources.services.AdvanceService;
-import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +13,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/advance")
 public class AdvanceController {
-
+    private  final AdvanceService advanceService;
     public AdvanceController(AdvanceService advanceService) {
         this.advanceService = advanceService;
     }
 
-    private  final AdvanceService advanceService;
 
 
     @PostMapping("/create")

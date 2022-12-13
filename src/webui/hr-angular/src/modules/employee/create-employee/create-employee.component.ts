@@ -16,24 +16,24 @@ export class CreateEmployeeComponent{
   val2: string;
   val5: string;
   val6: string;
-  genderType=[{name: 'Kadın', json: 200}, {name: 'Erkek', json: 200}, {name: 'Cinsiyet Belirtmek İstemiyorum', json: 200},]
-  positionType=[{name: 'Backend Developer', json: 200}, {name: 'Frontend Developer', json: 200}, {name: 'Ios Developer', json: 200}, {name: 'Android Developer', json: 200},]
-  levelType=[{name: 'Junior', json: 200}, {name: 'Mid-Level', json: 200}, {name: 'Senior', json: 200},]
-  departmentType=[{name: 'Yönetim', json: "SOFTWARE_DEVELOPMENT"}, {name: 'Finans', json: 200}, {name: 'İnsan Kaynakları', json: 200}, {name: 'Bilişim Teknolojileri', json: 200},]
+  genderType=[{name: 'Kadın', json: "WOMEN"}, {name: 'Erkek', json: "MAN"}, {name: 'Cinsiyet Belirtmek İstemiyorum', json: "OTHER"},]
+  positionType=[{name: 'Backend Developer', json: "BACKEND_DEVELOPER"}, {name: 'Frontend Developer', json: "FRONTEND_DEVELOPER"}, {name: 'Ios Developer', json: "IOS_DEVELOPER"}, {name: 'Android Developer', json: "ANDROID_DEVELOPER"},]
+  levelType=[{name: 'Junior', json: "JUNIOR"}, {name: 'Mid-Level', json: "JUNIOR"}, {name: 'Senior', json: "JUNIOR"},]
+  departmentType=[{name: 'Yönetim', json: "MANAGEMENT_DEPARTMENT"}, {name: 'Finans', json: "FINANCE_DEPARTMENT"}, {name: 'İnsan Kaynakları', json: "HUMAN_RESOURCES_DEPARTMENT"}, {name: 'Bilişim Teknolojileri', json: "INFORMATION_TECHNOLOGIES_DEPARTMENT"},]
   department = 'bilgisay';
-  email= 'bilgisay';
-  firstName= 'bilgisay';
-  lastName= 'bilgisay';
-  citizenNumber= 'bilgisay';
+  email= 'busrabozgoz@gmail.com';
+  firstName= 'Büşra';
+  lastName= 'Bozgöz';
+  citizenNumber= '11724078190';
 
-  gender= 'bilgisay';
+  gender= 'kadın';
   birthDay= '13/12/2022';
-  position= 'bilgisay';
+  position= 'backend';
   level= 'bilgisay';
   workStartDate= '01/12/1222';
-  phoneNumber= 'bilgisay';
-  address= 'bilgisay';
-  salary= 12;
+  phoneNumber= '5370140702';
+  address= 'Aksaray';
+  salary= 10000;
 
   constructor(private userService: EmployeeService) {
   }

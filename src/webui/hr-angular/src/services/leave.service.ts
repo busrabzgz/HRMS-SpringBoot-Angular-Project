@@ -1,10 +1,10 @@
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Injectable, Query} from "@angular/core";
-import {User} from "../models/user.model";
+
 import {Leave} from "../models/leave.model";
 
 @Injectable({providedIn: "root"})
-export class RequestService {
+export class LeaveService {
   baseUrl = 'http://localhost:8080/api/leave';
 
   constructor(private http: HttpClient) {

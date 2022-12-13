@@ -24,14 +24,14 @@ import java.util.List;
 import java.util.Optional;
 
 
-@RequiredArgsConstructor // final olmali yazdigim class
+@RequiredArgsConstructor
 @Slf4j
 @Service
 public class AdvanceService {
-    private  final UserService userService;
-    private  final UserRepository userRepository;
-    private  final AdvanceMapper advanceMapper;
-    private final AdvanceRepository advanceRepository;
+    private   UserService userService;
+    private   UserRepository userRepository;
+    private   AdvanceMapper advanceMapper;
+    private  AdvanceRepository advanceRepository;
 
     public AdvanceResponseDto createAdvance(CreateAdvanceRequestDto createAdvanceRequestDto)  throws Exception{
 
@@ -43,20 +43,6 @@ public class AdvanceService {
 
 
     }
-
-//    public AdvanceResponseDto updateAdvance(UpdateAdvanceRequestDto updateAdvanceRequestDto) throws Exception {
-//        Advance advance = advanceRepository.getReferenceById(updateAdvanceRequestDto.getUserId());
-//        advance.setAmount(updateAdvanceRequestDto.getAmount());
-//        advance.setDescription(updateAdvanceRequestDto.getDescription());
-//        advance.setDate(updateAdvanceRequestDto.getDate());
-//        advance.setRepayment(updateAdvanceRequestDto.getRepayment());
-//        advance=advanceRepository.save(advance);
-//
-//        AdvanceResponseDto advanceResponseDto = advanceMapper.toAdvanceResponseDtoFromAdvance(advance);
-//
-//        return advanceResponseDto;
-//
-//    }
 
     public AdvanceResponseDto updateAdvance(UpdateAdvanceRequestDto updateAdvanceRequestDto) {
         Optional<Advance> advanceOptional = advanceRepository.findById(updateAdvanceRequestDto.getUserId());
@@ -74,6 +60,11 @@ public class AdvanceService {
                 .orElseThrow(() -> new AdvanceNotFoundException("Advance not found!"));
     }
 
+    public Optional<Advance> findAdvanceById(Long id) {
+        return advanceRepository.findById(id);
+
+    }
+
     public void deleteAdvanceById(Long id) {
         advanceRepository.deleteById(id);
     }
@@ -83,9 +74,6 @@ public class AdvanceService {
     }
 
 
-    public Optional<Advance> findAdvanceById(Long id) {
-        return advanceRepository.findById(id);
 
-    }
 
 }

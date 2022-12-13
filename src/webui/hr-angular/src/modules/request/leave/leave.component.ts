@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, SimpleChange} from "@angular/core";
 import {TooltipModule} from 'primeng/tooltip';
-import {RequestService} from "../../../services/request.service";
+import {LeaveService} from "../../../services/leave.service";
 import {Leave} from "../../../models/leave.model";
 
 @Component({
@@ -16,19 +16,19 @@ export class LeaveComponent implements OnInit{
   leaveType = [
 
     {name: 'Askerlik İzni', json: "MILITARY_LEAVE"},
-    {name: 'Babalık İzni', json: 200},
-    {name: 'Doğum Günü İzni', json: 200},
-    {name: 'Doğum Sonrası İzni', json: 200},
-    {name: 'Evlik İzni', json: 200},
-    {name: 'Hastalık İzni', json: 200},
-    {name: 'İş Arama İzni', json: 200},
-    {name: 'Mazaret İzni', json: 200},
-    {name: 'Süt İzni', json: 200},
-    {name: 'Ücretsiz İzin', json: 200},
-    {name: 'Vefat İzni', json: 200},
-    {name: ' Yıllık İzin', json: 200},
-    {name: ' Yol İzni', json: 200},
-    {name: 'Diğer', json: 200},
+    {name: 'Babalık İzni', json: "PATERNITY_LEAVE"},
+    {name: 'Doğum Günü İzni', json: "BIRTHDAY_LEAVE"},
+    {name: 'Doğum Sonrası İzni', json: "MATERNITY_LEAVE"},
+    {name: 'Evlik İzni', json: "MARRIAGE_lEAVE"},
+    {name: 'Hastalık İzni', json: "MEDICAL_LEAVE"},
+    {name: 'İş Arama İzni', json: "LOOKING_FOR_A_JOB_LEAVE"},
+    {name: 'Mazaret İzni', json: "COMPASSIONATE_LEAVE"},
+    {name: 'Hamilelik İzni', json: "PREGNANT_LEAVE"},
+    {name: 'Ücretsiz İzin', json: "UNPAID_LEAVE"},
+    {name: 'Vefat İzni', json: "DEATH_LEAVE"},
+    {name: ' Yıllık İzin', json: "ANNUAL_LEAVE"},
+    {name: ' Yol İzni', json: "ROAD_LEAVE"},
+    {name: 'Diğer', json: "OTHER_LEAVE"},
   ]
   selectedLeaveType: any;
   value3: any;
@@ -37,7 +37,7 @@ export class LeaveComponent implements OnInit{
   dateOfReturn: any;
   description: any;
 
-  constructor(private leaveService: RequestService ) {
+  constructor(private leaveService: LeaveService ) {
 
   }
 

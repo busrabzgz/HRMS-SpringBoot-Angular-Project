@@ -12,6 +12,9 @@ public enum LeaveTypeEnum {
      LOOKING_FOR_A_JOB_LEAVE("207"),
      COMPASSIONATE_LEAVE("208"),
      UNPAID_LEAVE("209"),
+     BIRTHDAY_LEAVE("211"),
+     DEATH_LEAVE("212"),
+     OTHER_LEAVE("213"),
      ROAD_LEAVE("210");
 
 

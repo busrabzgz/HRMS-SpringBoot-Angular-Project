@@ -5,6 +5,7 @@ import com.example.humanresources.dto.requestDTO.UpdateUserRequestDto;
 import com.example.humanresources.dto.responseDTO.*;
 import com.example.humanresources.services.UserService;
 
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

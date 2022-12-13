@@ -3,19 +3,19 @@
 <div class="grid p-fluid">
     <div class="field col-12 md:col-3">
       <label >Tutar</label>
-      <p-inputNumber inputId="integeronly" [(ngModel)]="value1" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="1000">
+      <p-inputNumber inputId="integeronly" [(ngModel)]="amount" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="1000">
       </p-inputNumber>
     </div>
 
   <div class="field col-12 md:col-6">
     <label>Tarih</label>
-    <p-calendar [(ngModel)]="date7" [showTime]="true" [showSeconds]="true" inputId="time" [showIcon]="true" inputId="icon" ></p-calendar>
+    <p-calendar [(ngModel)]="date" [showTime]="true" [showSeconds]="true" inputId="time" [showIcon]="true" inputId="icon" ></p-calendar>
   </div>
 
 
   <div class="field col-12 md:col-12">
     <label>Açıklama</label>
-    <textarea rows="5" cols="5" pInputTextarea></textarea>
+    <textarea rows="5" cols="5" [(ngModel)]="description" pInputTextarea></textarea>
   </div>
 
 
