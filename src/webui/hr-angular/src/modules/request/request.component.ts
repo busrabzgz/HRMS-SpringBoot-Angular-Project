@@ -8,6 +8,7 @@ export class RequestComponent {
   @Input() displayBasic = false;
   @Input() selectedType: string;
   @Output() closeTab = new EventEmitter<boolean> ();
+  createRequest = '';
 
   showBasicDialog() {
     this.displayBasic = !this.displayBasic;

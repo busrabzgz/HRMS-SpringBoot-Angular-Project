@@ -23,6 +23,7 @@ import {CreateEmployeeComponent} from "../modules/employee/create-employee/creat
 import {ChipModule} from "primeng/chip";
 import {EmployeeService} from "../services/employee.service";
 import {HttpClientModule} from "@angular/common/http";
+import {SkeletonModule} from "primeng/skeleton";
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import {HttpClientModule} from "@angular/common/http";
         DataViewModule,
         ChipModule,
         HttpClientModule,
+        SkeletonModule,
 
 
     ],

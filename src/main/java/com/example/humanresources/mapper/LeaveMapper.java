@@ -18,7 +18,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface LeaveMapper {
-    @Mapping(source = "userId", target = "user.id", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.SET_TO_DEFAULT)
+    @Mapping(source = "userId", target = "user.id")
     Leave toLeaveFromCreateLeaveRequestDto(CreateLeaveRequestDto leaveRequestDto);
 
 

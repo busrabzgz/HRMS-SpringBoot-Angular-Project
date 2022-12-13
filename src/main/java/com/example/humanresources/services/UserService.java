@@ -2,17 +2,14 @@ package com.example.humanresources.services;
 
 import com.example.humanresources.dto.requestDTO.CreateUserRequestDto;
 import com.example.humanresources.dto.requestDTO.UpdateUserRequestDto;
-import com.example.humanresources.dto.responseDTO.ExpenseResponseDto;
-import com.example.humanresources.dto.responseDTO.LeaveResponseDto;
-import com.example.humanresources.dto.responseDTO.UserResponseDto;
+import com.example.humanresources.dto.responseDTO.*;
+import com.example.humanresources.entity.OvertimeWork;
 import com.example.humanresources.entity.User;
 import com.example.humanresources.exception.UserNotFoundException;
-import com.example.humanresources.mapper.AdvanceMapper;
-import com.example.humanresources.mapper.ExpenseMapper;
-import com.example.humanresources.mapper.LeaveMapper;
-import com.example.humanresources.mapper.UserMapper;
+import com.example.humanresources.mapper.*;
 import com.example.humanresources.repository.AdvanceRepository;
 import com.example.humanresources.repository.LeaveRepository;
+import com.example.humanresources.repository.OvertimeWorkRepository;
 import com.example.humanresources.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +43,11 @@ public class UserService {
     private final AdvanceService advanceService;
     private final AdvanceRepository advanceRepository;
     private final AdvanceMapper advanceMapper;
+
+    private final OvertimeWorkService overtimeWorkService;
+    private final OvertimeWorkRepository overtimeWorkRepository;
+    private final OvertimeWorkMapper overtimeWorkMapper;
+
 
 
     public UserResponseDto createUser(CreateUserRequestDto createUserRequestDto) throws Exception {
@@ -104,6 +106,17 @@ public class UserService {
         User user = userRepository.getReferenceById(id);
         return leaveMapper.toLeaveResponseDtosFromLeaves(leaveService.findAllLeaveByUserId(user));
     }
+
+    public List<AdvanceResponseDto> getUserAdvance(Long id) {
+        User user = userRepository.getReferenceById(id);
+        return advanceMapper.toAdvanceResponseDtosFromAdvances(advanceService.findAllAdvanceByUserId(user));
+    }
+
+    public List<OvertimeWorkResponseDto> getUserOvertimeWork(Long id) {
+        User user = userRepository.getReferenceById(id);
+        return overtimeWorkMapper.toOvertimeWorkResponseDtosFromOvertimeWorks(overtimeWorkService.findAllOvertimeWorkByUserId(user));
+    }
+
 
 
 

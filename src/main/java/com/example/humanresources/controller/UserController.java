@@ -2,11 +2,9 @@ package com.example.humanresources.controller;
 
 import com.example.humanresources.dto.requestDTO.CreateUserRequestDto;
 import com.example.humanresources.dto.requestDTO.UpdateUserRequestDto;
-import com.example.humanresources.dto.responseDTO.ExpenseResponseDto;
-import com.example.humanresources.dto.responseDTO.LeaveResponseDto;
-import com.example.humanresources.dto.responseDTO.UserResponseDto;
+import com.example.humanresources.dto.responseDTO.*;
 import com.example.humanresources.services.UserService;
-import jakarta.validation.Valid;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,15 +24,13 @@ public class UserController {
         this.userService = userService;
     }
 
-
-
     @PostMapping("/create")
-    public ResponseEntity<UserResponseDto> createUser(@Valid @RequestBody CreateUserRequestDto createUserRequestDto) throws Exception {
+    public ResponseEntity<UserResponseDto> createUser( @RequestBody CreateUserRequestDto createUserRequestDto) throws Exception {
         return ResponseEntity.ok(userService.createUser(createUserRequestDto));
     }
 
     @PutMapping("/update")
-    public ResponseEntity<UserResponseDto> updateUser(@Valid @RequestBody UpdateUserRequestDto updateUserRequestDto) throws Exception{
+    public ResponseEntity<UserResponseDto> updateUser( @RequestBody UpdateUserRequestDto updateUserRequestDto) throws Exception{
         return ResponseEntity.ok(userService.updateUser(updateUserRequestDto));
     }
 
@@ -63,6 +59,17 @@ public class UserController {
     public ResponseEntity<List<LeaveResponseDto>> getUserLeave(Long id){
         return ResponseEntity.ok(userService.getUserLeave(id));
     }
+
+    @GetMapping("/advance")
+    public ResponseEntity<List<AdvanceResponseDto>> getUserAdvance(Long id){
+        return ResponseEntity.ok(userService.getUserAdvance(id));
+    }
+
+    @GetMapping("/overtimeWork")
+    public ResponseEntity<List<OvertimeWorkResponseDto>> getUserOvertimeWork(Long id){
+        return ResponseEntity.ok(userService.getUserOvertimeWork(id));
+    }
+
 
 
 

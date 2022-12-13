@@ -6,11 +6,11 @@ export class User {
   lastName?: string;
   citizenNumber?: string;
   gender?: string;
-  birthOfDate?: string;
+  birthOfDate?: Date;
   position?: string;
   salary?: number;
   level?: string;
-  startToWork?: string;
+  startToWork?: Date;
   department?: string;
   email?: string;
   phoneNumber?: string;

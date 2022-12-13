@@ -4,10 +4,11 @@ import com.example.humanresources.entity.Expense;
 import com.example.humanresources.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
-
+@Repository
 public interface ExpenseRepository extends JpaRepository<Expense,Long> {
 
     @Query(value = "select ex from Expense ex where ex.user = ?1")

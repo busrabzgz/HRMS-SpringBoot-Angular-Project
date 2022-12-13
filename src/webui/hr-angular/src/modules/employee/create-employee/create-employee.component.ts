@@ -19,20 +19,21 @@ export class CreateEmployeeComponent{
   genderType=[{name: 'Kadın', json: 200}, {name: 'Erkek', json: 200}, {name: 'Cinsiyet Belirtmek İstemiyorum', json: 200},]
   positionType=[{name: 'Backend Developer', json: 200}, {name: 'Frontend Developer', json: 200}, {name: 'Ios Developer', json: 200}, {name: 'Android Developer', json: 200},]
   levelType=[{name: 'Junior', json: 200}, {name: 'Mid-Level', json: 200}, {name: 'Senior', json: 200},]
-  departmentType=[{name: 'Yönetim', json: 200}, {name: 'Finans', json: 200}, {name: 'İnsan Kaynakları', json: 200}, {name: 'Bilişim Teknolojileri', json: 200},]
-  department:string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  citizenNumber: string;
-  gender: string;
-  birthDay: string;
-  position: string;
-  level: string;
-  workStartDate: string;
-  phoneNumber: string;
-  address: string;
-  salary: number;
+  departmentType=[{name: 'Yönetim', json: "SOFTWARE_DEVELOPMENT"}, {name: 'Finans', json: 200}, {name: 'İnsan Kaynakları', json: 200}, {name: 'Bilişim Teknolojileri', json: 200},]
+  department = 'bilgisay';
+  email= 'bilgisay';
+  firstName= 'bilgisay';
+  lastName= 'bilgisay';
+  citizenNumber= 'bilgisay';
+
+  gender= 'bilgisay';
+  birthDay= '13/12/2022';
+  position= 'bilgisay';
+  level= 'bilgisay';
+  workStartDate= '01/12/1222';
+  phoneNumber= 'bilgisay';
+  address= 'bilgisay';
+  salary= 12;
 
   constructor(private userService: EmployeeService) {
   }
@@ -49,9 +50,9 @@ export class CreateEmployeeComponent{
       level: this.level,
       phoneNumber: this.phoneNumber,
       position: this.position,
-      birthOfDate: this.birthDay,
+      birthOfDate: new Date(this.birthDay),
       salary: this.salary,
-      startToWork: this.workStartDate,
+      startToWork: new Date(this.workStartDate),
     };
 
     this.userService.createUser(user).subscribe(user => {

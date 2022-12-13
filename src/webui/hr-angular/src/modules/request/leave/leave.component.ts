@@ -1,5 +1,7 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output, SimpleChange} from "@angular/core";
 import {TooltipModule} from 'primeng/tooltip';
+import {RequestService} from "../../../services/request.service";
+import {Leave} from "../../../models/leave.model";
 
 @Component({
   selector: 'leave',
@@ -8,10 +10,12 @@ import {TooltipModule} from 'primeng/tooltip';
 })
 export class LeaveComponent implements OnInit{
   displayBasic = false;
-  leaveDay = 2;
+  @Input() createRequest: string;
+  @Output() createdRequestDone = new EventEmitter<string>();
+  leaveDay = 0;
   leaveType = [
 
-    {name: 'Askerlik İzni', json: 200},
+    {name: 'Askerlik İzni', json: "MILITARY_LEAVE"},
     {name: 'Babalık İzni', json: 200},
     {name: 'Doğum Günü İzni', json: 200},
     {name: 'Doğum Sonrası İzni', json: 200},
@@ -28,17 +32,41 @@ export class LeaveComponent implements OnInit{
   ]
   selectedLeaveType: any;
   value3: any;
-  date7: any;
+  startOfLeave: any;
+  endOfLeave: any;
+  dateOfReturn: any;
+  description: any;
 
+  constructor(private leaveService: RequestService ) {
+
+  }
 
   ngOnInit(): void{
   }
 
+  createLeave(){
+    const leave: Leave = {
+      type:this.selectedLeaveType,
+      startOfLeave: new  Date (this.startOfLeave),
+      endOfLeave: new Date(this.endOfLeave),
+      dateOfReturn:new Date (this.dateOfReturn),
+      userId: 52,
+      totalDays: this.endOfLeave - this.startOfLeave,
+      description:this.description
+    };
+    this.leaveService.createLeave(leave).subscribe(res => {
+      console.log(res.body);
+    });
+    this.createdRequestDone.emit('');
+  }
 
-
-  showBasicDialog() {
-    this.displayBasic=!this.displayBasic;
-
+  ngOnChanges(changes: any) {
+    debugger;
+    console.log(changes);
+    if (changes.createRequest.currentValue == 'send') {
+      console.log('changes');
+      this.createLeave();
+    }
   }
 
 

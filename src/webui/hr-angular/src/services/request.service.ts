@@ -1,12 +1,15 @@
-import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {Injectable, Query} from "@angular/core";
 import {User} from "../models/user.model";
+import {Leave} from "../models/leave.model";
 
-@Injectable({providedIn: 'root'})
-export class EmployeeService {
-  baseUrl = 'http://localhost:8080/api/users';
+@Injectable({providedIn: "root"})
+export class RequestService {
+  baseUrl = 'http://localhost:8080/api/leave';
+
   constructor(private http: HttpClient) {
   }
+
   createRequestOption = (req?: any): HttpParams => {
     let options: HttpParams = new HttpParams();
     if (req) {
@@ -24,13 +27,11 @@ export class EmployeeService {
     return options;
   }
 
-  createUser(user: User) {
+  createLeave(leave: Leave) {
     const options = this.createRequestOption({});
-    return this.http.post(this.baseUrl + '/create', user, {params: options, observe: 'response'});
+    return this.http.post(this.baseUrl + '/create', leave, {params: options, observe: 'response'});
+
   }
 
-  getAllUsersByPageable(pageable: any) {
-    const options = this.createRequestOption({pageable});
-    return this.http.get(this.baseUrl + '/getAllUsers', {params: options, observe: 'response'});
-  }
+
 }

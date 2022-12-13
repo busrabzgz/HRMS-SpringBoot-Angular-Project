@@ -4,12 +4,12 @@ package com.example.humanresources.mapper;
 import com.example.humanresources.dto.requestDTO.CreateOvertimeWorkRequestDto;
 import com.example.humanresources.dto.requestDTO.UpdateOvertimeWorkRequestDto;
 import com.example.humanresources.dto.responseDTO.OvertimeWorkResponseDto;
-
 import com.example.humanresources.entity.OvertimeWork;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+
+import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface OvertimeWorkMapper {
@@ -21,4 +21,6 @@ public interface OvertimeWorkMapper {
     OvertimeWork toOvertimeWorkFromUpdateOvertimeWorkRequestDto(UpdateOvertimeWorkRequestDto overtimeWorkRequestDto);
     @Mapping(source = "user.id", target = "userId")
     OvertimeWorkResponseDto toOvertimeWorkResponseDtoFromOvertimeWork(OvertimeWork overtimeWork);
+
+    List<OvertimeWorkResponseDto> toOvertimeWorkResponseDtosFromOvertimeWorks(List<OvertimeWork> overtimeWorkList);
 }

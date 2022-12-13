@@ -14,6 +14,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateAdvanceRequestDto {
+    private LocalDateTime createDate = LocalDateTime.now();
+    private Long version = 0L;
+
     private Long userId;
 
 
@@ -23,4 +26,6 @@ public class UpdateAdvanceRequestDto {
     private LocalDateTime date;
     private Integer repayment;
     private String description;
+
+
 }

@@ -6,7 +6,9 @@ import com.example.humanresources.dto.requestDTO.UpdateOvertimeWorkRequestDto;
 import com.example.humanresources.dto.responseDTO.ExpenseResponseDto;
 import com.example.humanresources.dto.responseDTO.OvertimeWorkResponseDto;
 import com.example.humanresources.entity.Expense;
+import com.example.humanresources.entity.Leave;
 import com.example.humanresources.entity.OvertimeWork;
+import com.example.humanresources.entity.User;
 import com.example.humanresources.exception.OvertimeWorkNotFoundException;
 import com.example.humanresources.mapper.OvertimeWorkMapper;
 import com.example.humanresources.repository.OvertimeWorkRepository;
@@ -15,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor // final olmali yazdigim class
@@ -59,5 +62,8 @@ public class OvertimeWorkService {
     }
 
 
-
+    public List<OvertimeWork> findAllOvertimeWorkByUserId(User user) {
+        return overtimeWorkRepository.getByUserId(user);
+    }
 }
+

@@ -8,31 +8,31 @@
   <div class="col-12 md:col-6">
     <label>Toplam Gün</label>
     <div class="p-inputgroup">
-      <input type="text" pInputText [placeholder]="'Gün Sayısı' + leaveDay" [disabled]="true"  >
+      <input type="text" pInputText [placeholder]="'Gün Sayısı =' + (((endOfLeave - startOfLeave)/3600000)/24 | number: '1.0-0')" [disabled]="true"  >
       <button type="button" pButton pRipple icon="pi pi-shopping-bag" styleClass="p-button-warn"></button>
     </div>
   </div>
 
   <div class="field col-12 md:col-6">
     <label >Başlangıç Tarihi ve Saati</label>
-    <p-calendar [(ngModel)]="date7" [showTime]="true" [showSeconds]="true" inputId="time" [showIcon]="true" inputId="icon" ></p-calendar>
+    <p-calendar [(ngModel)]="startOfLeave" [showTime]="true" [showSeconds]="true" inputId="time" [showIcon]="true" inputId="icon" ></p-calendar>
 
   </div>
 
   <div class="field col-12 md:col-6">
     <label >Bitiş Tarihi ve Saati</label>
-    <p-calendar [(ngModel)]="date7" [showTime]="true" [showSeconds]="true" inputId="time" [showIcon]="true" inputId="icon"></p-calendar>
+    <p-calendar [(ngModel)]="endOfLeave" [showTime]="true" [showSeconds]="true" inputId="time" [showIcon]="true" inputId="icon"></p-calendar>
   </div>
 
   <div class="field col-12 md:col-12">
     <label>Açıklama</label>
-    <textarea rows="5" cols="5" pInputTextarea></textarea>
+    <textarea rows="5" [(ngModel)]="description" cols="5" pInputTextarea></textarea>
   </div>
 
 
   <div class="field col-12 md:col-6">
     <label>Dönüş Tarihi ve Saati</label>
-    <p-calendar [(ngModel)]="date7" [showTime]="true" [showSeconds]="true" inputId="time" [showIcon]="true" inputId="icon"></p-calendar>
+    <p-calendar [(ngModel)]="dateOfReturn" [showTime]="true" [showSeconds]="true" inputId="time" [showIcon]="true" inputId="icon"></p-calendar>
   </div>
 
 </div>
