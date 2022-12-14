@@ -1,8 +1,8 @@
 <p-dialog [header]="selectedType" [(visible)]="displayBasic" (visibleChange)="closeTab.emit(false);" [style]="{width: '60vw', height:'500px'}" [modal]="true" [baseZIndex]="100000">
   <leave [createRequest]="createRequest" (createdRequestDone)="createRequest= $event" *ngIf="selectedType === 'İzin Talep Et'"></leave>
   <advance [createRequest]="createRequest" (createdRequestDone)="createRequest= $event" *ngIf="selectedType === 'Avans Talep Et'"></advance>
-  <expense *ngIf="selectedType === 'Harcama Talep Et'"></expense>
-  <overtime *ngIf="selectedType==='Fazla Mesai Talep Et'"></overtime>
+  <expense [createRequest]="createRequest" (createdRequestDone)="createRequest= $event" *ngIf="selectedType === 'Harcama Talep Et'"></expense>
+  <overtime [createRequest]="createRequest" (createdRequestDone)="createRequest= $event" *ngIf="selectedType==='Fazla Mesai Talep Et'"></overtime>
   <ng-template pTemplate="footer">
     <p-button icon="pi pi-check" (click)="createRequest='send';displayBasic=false;closeTab.emit(false);" label="Kaydet" class="p-button-text"></p-button>
     <p-button icon="pi pi-times" (click)="displayBasic=false;closeTab.emit(false);" label="Vazgeç"></p-button>

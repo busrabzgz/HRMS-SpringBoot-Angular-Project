@@ -19,7 +19,7 @@
 
     <div class="col-12 lg:col-4">
       <span>Tc Kimlik Numarası</span>
-      <p-inputMask [(ngModel)]="citizenNumber" placeholder="99-99-99-99-190"></p-inputMask>
+      <input type="number" [(ngModel)]="citizenNumber" pInputText placeholder="Kimlik No">
     </div>
 
     <div class="col-12 md:col-4">
@@ -62,7 +62,7 @@
 
     <div class="col-12 md:col-6 lg:col-4">
       <span>Telefon Numarası</span>
-      <p-inputMask mask="(999) 999-9999" [(ngModel)]="phoneNumber" placeholder="(999) 999-9999"></p-inputMask>
+      <p-inputMask mask="(999) 999-99-99" [(ngModel)]="phoneNumber" placeholder="(999) 999-99-99"></p-inputMask>
     </div>
 
     <div class="  col-12 md:col-4">

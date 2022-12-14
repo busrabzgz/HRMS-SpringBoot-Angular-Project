@@ -1,11 +1,11 @@
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Injectable, Query} from "@angular/core";
 
-import {Leave} from "../models/leave.model";
+import {Expense} from "../models/expense.model";
 
 @Injectable({providedIn: "root"})
-export class LeaveService {
-  baseUrl = 'http://localhost:8080/api/leave';
+export class ExpenseService {
+  baseUrl = 'http://localhost:8080/api/expense';
 
   constructor(private http: HttpClient) {
   }
@@ -27,9 +27,9 @@ export class LeaveService {
     return options;
   }
 
-  createLeave(leave: Leave) {
+  createExpense(expense: Expense) {
     const options = this.createRequestOption({});
-    return this.http.post(this.baseUrl + '/create', leave, {params: options, observe: 'response'});
+    return this.http.post(this.baseUrl + '/create', expense, {params: options, observe: 'response'});
 
   }
 }

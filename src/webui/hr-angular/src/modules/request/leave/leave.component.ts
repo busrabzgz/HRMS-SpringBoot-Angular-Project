@@ -50,7 +50,7 @@ export class LeaveComponent implements OnInit{
       startOfLeave: new  Date (this.startOfLeave),
       endOfLeave: new Date(this.endOfLeave),
       dateOfReturn:new Date (this.dateOfReturn),
-      userId: 52,
+      userId: 1,
       totalDays: this.endOfLeave - this.startOfLeave,
       description:this.description
     };
@@ -61,7 +61,6 @@ export class LeaveComponent implements OnInit{
   }
 
   ngOnChanges(changes: any) {
-    debugger;
     console.log(changes);
     if (changes.createRequest.currentValue == 'send') {
       console.log('changes');
