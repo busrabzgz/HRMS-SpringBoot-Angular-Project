@@ -71,6 +71,11 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserOvertimeWork(id));
     }
 
+    @GetMapping("/getEmployeesBirthday")
+    public ResponseEntity<List<UserResponseDto>> getEmployeesBirthday() {
+        return ResponseEntity.ok(userService.getEmployeesBirthday());
+    }
+
 
 
 

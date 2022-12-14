@@ -1,6 +1,9 @@
 package com.example.humanresources.dto.responseDTO;
 
 import com.example.humanresources.enums.DepartmentEnum;
+import com.example.humanresources.enums.GenderTypeEnum;
+import com.example.humanresources.enums.LevelTypeEnum;
+import com.example.humanresources.enums.PositionTypeEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,15 +25,20 @@ public class UserResponseDto  {
     private String firstName;
     private String lastName;
     private String citizenNumber;
-    private String gender;
     private Date birthOfDate;
-    private String position;
     private BigDecimal salary;
-    private String  level;
     private LocalDateTime startToWork;
 
     @Enumerated
     private DepartmentEnum department;
+    @Enumerated
+    private GenderTypeEnum gender;
+
+    @Enumerated
+    private PositionTypeEnum position;
+
+    @Enumerated
+    private LevelTypeEnum level;
 
     private String email;
     private String phoneNumber;

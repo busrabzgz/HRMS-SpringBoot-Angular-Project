@@ -1,12 +1,8 @@
 package com.example.humanresources.services;
 
-import com.example.humanresources.dto.requestDTO.CreateExpenseRequestDto;
 import com.example.humanresources.dto.requestDTO.CreateOvertimeWorkRequestDto;
 import com.example.humanresources.dto.requestDTO.UpdateOvertimeWorkRequestDto;
-import com.example.humanresources.dto.responseDTO.ExpenseResponseDto;
 import com.example.humanresources.dto.responseDTO.OvertimeWorkResponseDto;
-import com.example.humanresources.entity.Expense;
-import com.example.humanresources.entity.Leave;
 import com.example.humanresources.entity.OvertimeWork;
 import com.example.humanresources.entity.User;
 import com.example.humanresources.exception.OvertimeWorkNotFoundException;
@@ -63,7 +59,7 @@ public class OvertimeWorkService {
 
 
     public List<OvertimeWork> findAllOvertimeWorkByUserId(User user) {
-        return overtimeWorkRepository.getByUserId(user);
+        return overtimeWorkRepository.getOvertimeByUserId(user.getId());
     }
 }
 

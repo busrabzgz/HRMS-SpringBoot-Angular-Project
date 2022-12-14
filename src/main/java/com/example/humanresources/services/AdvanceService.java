@@ -28,10 +28,9 @@ import java.util.Optional;
 @Slf4j
 @Service
 public class AdvanceService {
-    private   UserService userService;
-    private   UserRepository userRepository;
-    private   AdvanceMapper advanceMapper;
-    private  AdvanceRepository advanceRepository;
+    private  final UserRepository userRepository;
+    private  final AdvanceMapper advanceMapper;
+    private final AdvanceRepository advanceRepository;
 
     public AdvanceResponseDto createAdvance(CreateAdvanceRequestDto createAdvanceRequestDto)  throws Exception{
 

@@ -117,6 +117,10 @@ public class UserService {
         return overtimeWorkMapper.toOvertimeWorkResponseDtosFromOvertimeWorks(overtimeWorkService.findAllOvertimeWorkByUserId(user));
     }
 
+    public List<UserResponseDto> getEmployeesBirthday() {
+        return userMapper.toUserResponseDTOsFromUsers(userRepository.getEmployeesBirthday());
+    }
+
 
 
 

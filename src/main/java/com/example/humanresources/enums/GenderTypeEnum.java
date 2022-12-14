@@ -1,11 +1,11 @@
 package com.example.humanresources.enums;
 
 public enum GenderTypeEnum {
-    WOMEN("200"),
+    WOMEN("230"),
 
-    MAN("200"),
+    MAN("232"),
 
-    OTHER("200");
+    OTHER("235");
     private final String value;
     private GenderTypeEnum(String value) {
         this.value = value;

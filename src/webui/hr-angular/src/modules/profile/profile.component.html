@@ -1,0 +1,126 @@
+
+<div class="grid p-fluid">
+  <div class="col-12 md:col-5">
+    <p-card>
+      <div class="grid p-fluid m-3">
+        <div class="col-12 md:col-12 ml-7">
+          <p-skeleton size="8rem"></p-skeleton>
+        </div>
+        <div class="col-12 md:col-6 align-content-start">
+          <p>İsim: </p>
+        </div>
+        <div class="col-12 md:col-6 justify-content-end mt-3">
+          <p>{{user?.firstName + user?.lastName}}</p>
+        </div>
+<!--        -->
+        <div class="col-12 md:col-6 align-content-start">
+          <p>Email: </p>
+        </div>
+        <div class="col-12 md:col-6 justify-content-end mt-3">
+          <div>{{user?.email}}</div>
+        </div>
+<!--        -->
+        <div class="col-12 md:col-6 align-content-start">
+          <p>Pozisyon: </p>
+        </div>
+        <div class="col-12 md:col-6 justify-content-end mt-3">
+          <div>{{user?.position}}</div>
+        </div>
+        <div class="col-12 md:col-6 align-content-start">
+          <p>Telefon No: </p>
+        </div>
+        <div class="col-12 md:col-6 justify-content-end mt-3">
+          <div>{{user?.phoneNumber}}</div>
+        </div>
+
+
+      </div>
+    </p-card>
+  </div>
+  <div class="col-12 md:col-7">
+    <p-card>
+      <<p-tabView>
+      <p-tabPanel header="İzinlerim">
+        <p-table [value]="leaves" [tableStyle]="{'min-width': '50rem'}">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Quantity</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-leave>
+            <tr>
+              <td>{{leave.code}}</td>
+              <td>{{leave.name}}</td>
+              <td>{{leave.category}}</td>
+              <td>{{leave.quantity}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabPanel>
+      <p-tabPanel header="Avanslarım">
+        <p-table [value]="advances" [tableStyle]="{'min-width': '50rem'}">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Quantity</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-advance>
+            <tr>
+              <td>{{advance.code}}</td>
+              <td>{{advance.name}}</td>
+              <td>{{advance.category}}</td>
+              <td>{{advance.quantity}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabPanel>
+      <p-tabPanel header="Harcamalarım">
+        <p-table [value]="expenses" [tableStyle]="{'min-width': '50rem'}">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Quantity</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-expense>
+            <tr>
+              <td>{{expense.code}}</td>
+              <td>{{expense.name}}</td>
+              <td>{{expense.category}}</td>
+              <td>{{expense.quantity}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabPanel>
+      <p-tabPanel header="Fazla Mesailerim">
+        <p-table [value]="overtimes" [tableStyle]="{'min-width': '50rem'}">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Quantity</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-overtime>
+            <tr>
+              <td>{{overtime.code}}</td>
+              <td>{{overtime.name}}</td>
+              <td>{{overtime.category}}</td>
+              <td>{{overtime.quantity}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabPanel>
+    </p-tabView>
+    </p-card>
+  </div>
+</div>

@@ -24,6 +24,8 @@ import {ChipModule} from "primeng/chip";
 import {EmployeeService} from "../services/employee.service";
 import {HttpClientModule} from "@angular/common/http";
 import {SkeletonModule} from "primeng/skeleton";
+import { ProfileComponent } from '../modules/profile/profile.component';
+import {TabMenuModule} from "primeng/tabmenu";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import {SkeletonModule} from "primeng/skeleton";
     DashbordComponent,
     OvertimeComponent,
     EmployeeComponent,
-    CreateEmployeeComponent
+    CreateEmployeeComponent,
+    ProfileComponent
   ],
     imports: [
         BrowserModule,
@@ -53,6 +56,7 @@ import {SkeletonModule} from "primeng/skeleton";
         ChipModule,
         HttpClientModule,
         SkeletonModule,
+        TabMenuModule,
 
 
     ],

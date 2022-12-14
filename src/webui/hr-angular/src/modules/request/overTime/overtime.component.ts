@@ -37,7 +37,7 @@ export class OvertimeComponent implements OnInit{
       duration:this.duration,
       startOfDate:new Date(this.startOfDate),
       description:this.description,
-      userId:52
+      userId:1
 
 
     };

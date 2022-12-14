@@ -81,16 +81,16 @@ public class User {
 //    @OneToMany(mappedBy = "employee")
 //    private List<Leave> leaves;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
     private List<Expense> expense;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
     private List<OvertimeWork> overtimeWork;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Leave> leaves;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
     private List<Advance> advances;
 
 }

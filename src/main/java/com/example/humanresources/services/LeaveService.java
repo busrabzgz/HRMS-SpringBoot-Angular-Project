@@ -1,22 +1,14 @@
 package com.example.humanresources.services;
 
 import com.example.humanresources.dto.requestDTO.CreateLeaveRequestDto;
-import com.example.humanresources.dto.requestDTO.CreateOvertimeWorkRequestDto;
 import com.example.humanresources.dto.requestDTO.UpdateLeaveRequestDto;
-import com.example.humanresources.dto.requestDTO.UpdateOvertimeWorkRequestDto;
 import com.example.humanresources.dto.responseDTO.LeaveResponseDto;
-import com.example.humanresources.dto.responseDTO.OvertimeWorkResponseDto;
-import com.example.humanresources.dto.responseDTO.UserResponseDto;
-import com.example.humanresources.entity.Expense;
 import com.example.humanresources.entity.Leave;
-import com.example.humanresources.entity.OvertimeWork;
 import com.example.humanresources.entity.User;
 import com.example.humanresources.exception.LeaveNotFoundException;
-import com.example.humanresources.exception.OvertimeWorkNotFoundException;
 import com.example.humanresources.mapper.LeaveMapper;
 import com.example.humanresources.repository.LeaveRepository;
 import com.example.humanresources.repository.UserRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -83,7 +75,7 @@ public class LeaveService {
     }
 
     public List<Leave> findAllLeaveByUserId(User user) {
-        return leaveRepository.getByUserId(user);
+        return leaveRepository.findAllByUserId(user.getId());
     }
     public List<Leave> findAlLeave() {
         return leaveRepository.findAll();

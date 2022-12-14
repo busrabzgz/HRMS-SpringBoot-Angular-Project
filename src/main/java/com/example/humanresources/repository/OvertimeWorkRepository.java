@@ -1,6 +1,5 @@
 package com.example.humanresources.repository;
 
-import com.example.humanresources.entity.Leave;
 import com.example.humanresources.entity.OvertimeWork;
 import com.example.humanresources.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,5 +10,5 @@ import java.util.List;
 @Repository
 
 public interface OvertimeWorkRepository extends JpaRepository<OvertimeWork,Long> {
-    List<OvertimeWork> getByUserId(User user);
+    List<OvertimeWork> getOvertimeByUserId(Long id);
 }

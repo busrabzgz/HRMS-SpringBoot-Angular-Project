@@ -31,7 +31,7 @@ export class AdvanceComponent implements OnInit {
       amount:this.amount,
       date:new Date(this.date),
       description:this.description,
-      userId:52
+      userId:1
 
 
     };

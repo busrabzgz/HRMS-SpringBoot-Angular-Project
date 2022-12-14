@@ -83,7 +83,7 @@ export class SidebarComponent implements OnInit {
       {
         label: 'Profilim', icon: 'pi pi-user',
         command: event => {
-          this.route.navigate(['/userProfile']);
+          this.route.navigate(['/profile']);
         }
       },
     ];

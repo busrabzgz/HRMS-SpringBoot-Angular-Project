@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface LeaveRepository extends JpaRepository<Leave,Long> {
-    List<Leave> getByUserId(User user);
+    List<Leave> findAllByUserId(Long id);
 }
