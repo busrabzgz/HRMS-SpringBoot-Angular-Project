@@ -37,17 +37,22 @@
       </div>
     </p-card>
   </div>
-  <div class="col-12 md:col-7">
-    <p-card>
+  <div class="col-20 md:col-7">
+    <p-card class="p-d-xl-flex, p-d-lg-flex">
       <<p-tabView>
       <p-tabPanel header="İzinlerim">
         <p-table [value]="leaves" [tableStyle]="{'min-width': '50rem'}">
           <ng-template pTemplate="header">
             <tr>
-              <th>Code</th>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Quantity</th>
+              <th>Baslangic</th>
+              <th>Bitis</th>
+              <th>Mesai Baslangic</th>
+              <th>Sure</th>
+              <th>Izin Turu</th>
+              <th>Aciklama </th>
+<!--              <th>Olusturma Tarihi </th>-->
+<!--              <th>Onay </th>-->
+
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-leave>
@@ -64,10 +69,11 @@
         <p-table [value]="advances" [tableStyle]="{'min-width': '50rem'}">
           <ng-template pTemplate="header">
             <tr>
-              <th>Code</th>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Quantity</th>
+              <th>Tur</th>
+              <th>Tutar</th>
+              <th>Tarih</th>
+              <th>Taksit</th>
+              <th>Aciklama</th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-advance>
@@ -84,10 +90,8 @@
         <p-table [value]="expenses" [tableStyle]="{'min-width': '50rem'}">
           <ng-template pTemplate="header">
             <tr>
-              <th>Code</th>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Quantity</th>
+              <th>Fis</th>
+              <th>Aciklama</th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-expense>
@@ -104,10 +108,10 @@
         <p-table [value]="overtimes" [tableStyle]="{'min-width': '50rem'}">
           <ng-template pTemplate="header">
             <tr>
-              <th>Code</th>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Quantity</th>
+              <th>Sure</th>
+              <th>Tarih</th>
+              <th>Aciklama</th>
+
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-overtime>
