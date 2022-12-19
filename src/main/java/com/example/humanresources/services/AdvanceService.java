@@ -74,10 +74,6 @@ public class AdvanceService {
 
 
 
-    public void delete(){
-    }
-
-
 
 
 }
