@@ -77,10 +77,6 @@ public class AdvanceService {
     public void delete(){
     }
 
-    public void denemeMethod() {
-
-    }
-
 
 
 
