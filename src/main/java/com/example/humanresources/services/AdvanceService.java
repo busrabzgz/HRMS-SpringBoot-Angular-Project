@@ -72,7 +72,13 @@ public class AdvanceService {
         return advanceRepository.getByUser(user);
     }
 
+    public void get(){}
+
     public void delete(){
+    }
+
+    public void denemeMethod() {
+
     }
 
 
