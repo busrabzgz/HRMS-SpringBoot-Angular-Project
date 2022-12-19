@@ -72,6 +72,9 @@ public class AdvanceService {
         return advanceRepository.getByUser(user);
     }
 
+    public void delete(){
+    }
+
 
 
 
